@@ -1,0 +1,2795 @@
+﻿<skin name="Focus" version="8" width="1920" height="1080" nbdecks="2" comment="Focus Video OSC ver 3" author="DJDaD - Atomix Productions" preview="skinpreview.png">
+
+	<font name="Arial" />
+	<tooltip font="Arial" weight="bold" size="15" color="black" back="#C4B573" shortcut="#808080"></tooltip>
+	<customicons x="561" y="2010" iconsize="64" nb="144" nbx="16" />
+
+
+	<group name="defines">
+		<define class="pad">
+			<size width="87" height="20"/>
+			<off x="1342" y="1109"/>
+			<on x="1342" y="1169"/>
+			<over x="1342" y="1223"/>
+			<text dx="3" width="81" font="Arial" size="16" color="#C5C6C6" align="center" weight="bold" />
+			<textselected dx="3" width="81" font="Arial" size="16" color="black" align="center" weight="bold" />
+		</define>
+		<define class="padct">
+			<size width="81" height="30"/>
+			<off x="40" y="1490"/>
+			<text size="16" color="white" weight="bold" align="center" scroll="no"/>
+			<textselected size="16" color="#00FF5A" weight="bold" align="center" scroll="no" />
+		</define>
+		<define class="padm">
+			<size width="110" height="30"/>
+			<off x="40" y="1490"/>
+			<text size="16" color="white" weight="bold" align="center" scroll="no"/>
+		</define>
+		<define class="padprm">
+			<size width="110" height="16"/>
+			<off x="40" y="1490"/>
+			<text size="14" color="white" weight="bold" align="center" scroll="no"/>
+		</define>
+	</group>
+	<logo >
+		<pos x="11" y="10"/>
+		<size width="100" height="25"/>
+	</logo>
+
+	<button action="settings">
+		<tooltip>VirtualDJ Settings</tooltip>
+		<pos x="1700" y="1"/>
+		<size width="42" height="42"/>
+		<off x="1249" y="1306"/>
+		<on x="1249" y="1366"/>
+		<over x="1249" y="1421"/>
+	</button>
+
+	<button action="minimize">
+		<tooltip>Minimize to Taskbar</tooltip>
+		<pos x="1750+15" y="1"/>
+		<size width="42" height="42"/>
+		<off x="1871" y="1306"/>
+		<on x="1871" y="1366"/>
+		<over x="1871" y="1421"/>
+	</button>
+	<button action="maximize"visibility="maximize 'maximized'">
+		<tooltip>Maximize to Full screen</tooltip>
+		<pos x="1800+15" y="1"/>
+		<size width="42" height="42"/>
+		<off x="1824" y="1537"/>
+		<over x="1824" y="1597"/>
+	</button>
+	<button action="maximize" visibility="maximize 'windowed'">
+		<tooltip>Maximize to Full screen</tooltip>
+		<pos x="1800+15" y="1"/>
+		<size width="42" height="42"/>
+		<off x="1824" y="1306"/>
+		<over x="1824" y="1366"/>
+	</button>
+	<button action="maximize" visibility="maximize 'fullscreen'">
+		<tooltip>Maximize to Full screen</tooltip>
+		<pos x="1800+15" y="1"/>
+		<size width="42" height="42"/>
+		<off x="1824" y="1422"/>
+		<over x="1824" y="1482"/>
+	</button>
+	<button action="close">
+		<tooltip>Close VirtualDJ</tooltip>
+		<pos x="1850+15" y="1"/>
+		<size width="42" height="42"/>
+		<off x="1202" y="1306"/>
+		<over x="1202" y="1421"/>
+	</button>
+
+	<button action="toggle '@$options'">
+		<tooltip>Show Deck/Mixer on Screen Options Panel</tooltip>
+		<pos x="1570" y="1"/>
+		<size width="52" height="42"/>
+		<off x="417" y="1900"/>
+		<on x="417" y="1960"/>
+		<over x="417" y="2015"/>
+	</button>
+	<button action="toggle '@$hidefocus'" query="var '@$hidefocus' 0">
+		<tooltip>Show Deck/Mixer on Screen Options Panel</tooltip>
+		<pos x="1630" y="1"/>
+		<size width="52" height="42"/>
+		<off x="1246" y="1109"/>
+		<on x="1246" y="1169"/>
+		<over x="1246" y="1224"/>
+	</button>
+	<button action="setting 'videocreatelinkondrop'">
+		<tooltip>Link video mode\nWhen On, Video Deck previews will link Video instead of loading</tooltip>
+		<pos x="1510" y="2"/>
+		<size width="42" height="42"/>
+		<off x="1660" y="1109"/>
+		<on x="1660" y="1169"/>
+		<over x="1660" y="1224"/>
+		<text font="Arial" size="14" color="#C5C6C6" align="center" weight="bold" format="LINK\nMODE" />
+		<textselected font="Arial" size="14" color="black" align="center" weight="bold" format="LINK\nMODE" />
+	</button>
+
+	<textzone>
+		<pos x="225" y="10"/>
+		<size width="90" height="26"/>
+		<tooltip>CLOCK\n Click to toggle between 24hour clock and am/pm</tooltip>
+		<text size="24" color="#aaaaaa" align="center" format="%fullhour"/>
+		<text2 size="24" color="#aaaaaa" align="center" format="%hour12"/>
+		<text3 size="24" color="#aaaaaa" align="center" format="%counter"/>
+	</textzone>
+
+	<group name="cpu" x="160" y="2">
+		<textzone>
+			<pos x="+0" y="+0"/>
+			<size width="46" height="14"/>
+			<text size="13" color="#aaaaaa" align="center" format="CPU"/>
+		</textzone>
+		<visual source="get cpu" type="linear" orientation="horizontal">
+			<pos x="+0" y="+13"/>
+			<size width="40" height="18"/>
+			<tooltip>System CPU use (all softwares running right now)</tooltip>
+			<on x="1832" y="1239"/>
+			<off x="1832" y="1219"/>
+		</visual>
+	</group>
+
+
+	<group name="beat_matcher" x="818" y="2">
+
+		<group name="beatphase1" x="+0" y="+0">
+			<deck deck="1">
+				<visual source="get_beat_counter" type="circle">
+					<tooltip>Phrase indicator</tooltip>
+					<size width="38" height="38"/>
+					<pos x="+0" y="+1"/>
+					<off x="1733" y="1112"/>
+					<on x="1783" y="1112"/>
+				</visual>
+				<textzone>
+					<tooltip>Phrase indicator</tooltip>
+					<pos x="+7" y="+1+7"/>
+					<size width="22" height="22"/>
+					<text size="16" color="#aaaaaa" align="center" weight="bold" action="get_beat_counter"/>
+				</textzone>
+				<button action="goto -4">
+					<tooltip>Phrase indicator</tooltip>
+					<size width="38" height="38"/>
+					<pos x="+0" y="+1"/>
+				</button>
+			</deck>
+		</group>
+
+		<group name="beatmatch" x="+50" y="+8">
+			<deck deck="1">
+				<button action="goto_bar 1">
+					<tooltip>Beat</tooltip>
+					<size width="42" height="8"/>
+					<pos x="+0" y="+1"/>
+					<off x="1718" y="1655"/>
+					<on x="1768" y="1655"/>
+				</button>
+				<button action="goto_bar 2">
+					<tooltip>Beat</tooltip>
+					<size width="42" height="8"/>
+					<pos x="+50" y="+1"/>
+					<off x="1718" y="1655"/>
+					<on x="1768" y="1655"/>
+				</button>
+				<button action="goto_bar 3">
+					<tooltip>Beat</tooltip>
+					<size width="42" height="8"/>
+					<pos x="+50+50" y="+1"/>
+					<off x="1718" y="1655"/>
+					<on x="1768" y="1655"/>
+				</button>
+				<button action="goto_bar 4">
+					<tooltip>Beat</tooltip>
+					<size width="42" height="8"/>
+					<pos x="+50+50+50" y="+1"/>
+					<off x="1718" y="1655"/>
+					<on x="1768" y="1655"/>
+				</button>
+			</deck>
+
+			<deck deck="2">
+				<button action="goto_bar 1">
+					<tooltip>Beat</tooltip>
+					<size width="42" height="8"/>
+					<pos x="+0" y="+15"/>
+					<off x="1718" y="1655"/>
+					<on x="1818" y="1655"/>
+				</button>
+				<button action="goto_bar 2">
+					<tooltip>Beat</tooltip>
+					<size width="42" height="8"/>
+					<pos x="+50" y="+15"/>
+					<off x="1718" y="1655"/>
+					<on x="1818" y="1655"/>
+				</button>
+				<button action="goto_bar 3">
+					<tooltip>Beat</tooltip>
+					<size width="42" height="8"/>
+					<pos x="+50+50" y="+15"/>
+					<off x="1718" y="1655"/>
+					<on x="1818" y="1655"/>
+				</button>
+				<button action="goto_bar 4">
+					<tooltip>Beat</tooltip>
+					<size width="42" height="8"/>
+					<pos x="+50+50+50" y="+15"/>
+					<off x="1718" y="1655"/>
+					<on x="1818" y="1655"/>
+				</button>
+			</deck>
+		</group>
+
+
+		<group name="beatphase2" x="+258" y="+0">
+			<deck deck="2">
+				<visual source="get_beat_counter" type="circle">
+					<tooltip>Phrase indicator</tooltip>
+					<size width="38" height="38"/>
+					<pos x="+0" y="+1"/>
+					<off x="1733" y="1112"/>
+					<on x="1833" y="1112"/>
+				</visual>
+				<textzone>
+					<tooltip>Phrase indicator</tooltip>
+					<pos x="+7" y="+1+7"/>
+					<size width="22" height="22"/>
+					<text size="16" color="#aaaaaa" align="center" weight="bold" action="get_beat_counter"/>
+				</textzone>
+				<button action="goto -4">
+					<tooltip>Phrase indicator</tooltip>
+					<size width="30" height="30"/>
+					<pos x="+0" y="+1"/>
+				</button>
+			</deck>
+		</group>
+
+	</group>
+
+
+	<group name="mastervol" x="400" y="0">
+		<textzone>
+			<pos x="+0" y="+9"/>
+			<size width="46" height="28"/>
+			<text size="13" color="#aaaaaa" align="center" format="MASTER\nVOLUME"/>
+		</textzone>
+		<slider action="master_volume" dblclick="master_volume 100%" orientation="horizontal" rightclick="temporary">
+			<pos x="+50" y="+1"/>
+			<size width="207" height="30"/>
+			<on x="1393" y="1615"/>
+			<off x="1393" y="1664"/>
+			<fader>
+				<size width="11" height="30"/>
+				<pos x="1453" y="1404"/>
+				<over x="1432" y="1404"/>
+			</fader>
+		</slider>
+		<visual source="deck master get_vu_meter" type="linear" orientation="horizontal">
+			<pos x="+56" y="+30"/>
+			<size width="194" height="12"/>
+			<off x="981" y="1120"/>
+			<on x="981" y="1160"/>
+		</visual>
+	</group>
+
+	<group name="hpvol" x="1220" y="0">
+		<textzone>
+			<pos x="+0" y="+5"/>
+			<size width="46" height="38"/>
+			<text size="13" color="#aaaaaa" align="center" format="VOLUME\nPFL\nCUE MIX"/>
+		</textzone>
+		<slider action="headphone_volume" dblclick="headphone_volume 100%" orientation="horizontal" rightclick="temporary">
+			<pos x="+50" y="+0"/>
+			<size width="207" height="30"/>
+			<on x="1393" y="1615"/>
+			<off x="1393" y="1664"/>
+			<fader>
+				<size width="11" height="30"/>
+				<pos x="1453" y="1404"/>
+				<over x="1432" y="1404"/>
+			</fader>
+		</slider>
+		<slider action="headphone_mix" dblclick="headphone_mix 0%" orientation="horizontal" rightclick="temporary">
+			<pos x="+50" y="+20"/>
+			<size width="207" height="30"/>
+			<on x="1393" y="1615"/>
+			<off x="1393" y="1664"/>
+			<fader>
+				<size width="11" height="30"/>
+				<pos x="1453" y="1404"/>
+				<over x="1432" y="1404"/>
+			</fader>
+		</slider>
+	</group>
+
+	<panel namw="fcnormaldecks" visibility="not browser_zoom">
+		<textzone>
+			<size width="42" height="16"/>
+			<pos x="1865" y="53"/>
+			<text font="Arial" size="16" align="center" weight="bold" color="white" format="VIEW"/>
+		</textzone>
+		<menu>
+			<tooltip>CHOOSE WAVEFORM TYPE</tooltip>
+			<size width="42" height="42"/>
+			<pos x="1865" y="68"/>
+			<off x="1771" y="1482"/>
+			<on x="1771" y="1537"/>
+			<over x="1771" y="1597"/>
+			<item text="Default Wave" action="skin_pannel 'defaultwave' on" check="skin_pannel 'defaultwave'" />
+			<item text="Default Wave - Up(reverted)/down" action="skin_pannel 'updown' on" check="skin_pannel 'updown'" />
+			<item text="Default Wave - Up/down" action="skin_pannel 'updownstack' on" check="skin_pannel 'updownstack'" />
+			<item text="Scratch Wave" action="skin_pannel 'scratch' on" check="skin_pannel 'scratch'"/>
+		</menu>
+
+		<menu>
+			<tooltip>CHOOSE WAVEFORM COLOR</tooltip>
+			<size width="42" height="42"/>
+			<pos x="1865" y="68+44"/>
+			<off x="1771" y="1482"/>
+			<on x="1771" y="1537"/>
+			<over x="1771" y="1597"/>
+			<item text="Monochrome" action="setting 'ColoredWaveforms' 'monochrome'" check="setting 'ColoredWaveforms' 'monochrome'" />
+			<item text="Neutral" action="setting 'ColoredWaveforms' 'neutral'" check="setting 'ColoredWaveforms' 'neutral'" />
+			<item text="Infrared" action="setting 'ColoredWaveforms' 'infra-red'" check="setting 'ColoredWaveforms' 'infra-red'" />
+			<item text="Per Deck" action="setting 'ColoredWaveforms' 'per-deck'" check="setting 'ColoredWaveforms' 'per-deck'" />
+			<item text="Ultra Blue" action="setting 'ColoredWaveforms' 'ultra-blue'" check="setting 'ColoredWaveforms' 'ultra-blue'" />
+
+		</menu>
+		<visual type="color" source="constant 'blue'" visibility="20%">
+			<tooltip></tooltip>
+			<size width="42" height="42"/>
+			<pos x="1865" y="68+44"/>
+		</visual>
+
+
+		<slider action="zoom_scratch" rightclick="temporary" dblclick="reset" orientation="vertical" visibility="skin_panel 'scratch' on ? true : false">
+			<size width="18" height="91"/>
+			<pos x="19" y="60"/>
+			<fader>
+				<size width="18" height="12"/>
+				<pos x="1829" y="1276"/>
+			</fader>
+		</slider>
+		<slider action="zoom" rightclick="temporary" dblclick="reset" orientation="vertical" visibility="skin_panel 'scratch' on ? false : true">
+			<size width="18" height="91"/>
+			<pos x="19" y="60"/>
+			<fader>
+				<size width="18" height="12"/>
+				<pos x="1829" y="1276"/>
+			</fader>
+		</slider>
+
+		<panel name="defaultwave" group="waveform" visible="yes">
+			<size width="1802" height="110"/>
+			<pos x="62" y="46"/>
+			<down x="+0" y="+0"/>
+
+			<rhythmzone mirror="false" upsidedown="false" fade="200">
+				<size width="1802" height="110"/>
+				<pos x="+0" y="+0"/>
+				<colors deck1="#007097" deck1_active="#009fd2" deck1_left="#007097" deck2="#8c0709" deck2_active="#cd0f10" deck2_right="#8c0709" />
+				<rhythm y="+0" height="95"/>
+				<grid height="6" width="6" maxwidth="10">
+					<pos y1="+95+2" y2="+95+2+6"/>
+				</grid>
+				<cue y="+0" height="110">
+					<text dx="15" dy="-1" size="14" />
+					<mask width="15" height="110" x="1746" y="2021"/>
+				</cue>
+				<overlay>
+					<size width="2" height="110"/>
+					<pos x="963" y="46"/>
+					<background x="963" y="2668"/>
+				</overlay>
+			</rhythmzone>
+		</panel>
+
+		<panel name="updown" group="waveform" visible="no">
+			<size width="1802" height="110"/>
+			<pos x="62" y="46"/>
+			<down x="+0" y="+0"/>
+
+			<rhythmzone mirror="false" upsidedown="true" fade="200">
+				<size width="1802" height="55"/>
+				<pos x="+0" y="+0"/>
+				<colors deck1="#009fd2"/>
+				<rhythm y="+0" height="49"/>
+				<grid height="6" width="6" maxwidth="10">
+					<pos y1="+49"/>
+				</grid>
+				<cue y="+0" height="49">
+					<text dx="15" dy="+34" size="14" />
+					<mask width="15" height="110" x="1785" y="2082"/>
+				</cue>
+				<overlay>
+					<size width="2" height="55"/>
+					<pos x="963" y="46"/>
+					<background x="963" y="2668"/>
+				</overlay>
+			</rhythmzone>
+			<rhythmzone mirror="false" upsidedown="false" fade="200">
+				<size width="1802" height="55"/>
+				<pos x="+0" y="+55"/>
+				<colors deck2="#cd0f10"/>
+				<rhythm y="+6" height="49"/>
+				<grid height="6" width="6" maxwidth="10">
+					<pos y2="+0"/>
+				</grid>
+				<cue y="+6" height="49">
+					<text dx="15" dy="-1" size="14" />
+					<mask width="15" height="110" x="1746" y="2021"/>
+				</cue>
+				<overlay>
+					<size width="2" height="55"/>
+					<pos x="963" y="+0"/>
+					<background x="963" y="2668"/>
+				</overlay>
+			</rhythmzone>
+
+		</panel>
+
+		<panel name="updownstack" group="waveform" visible="no">
+			<size width="1802" height="110"/>
+			<pos x="62" y="46"/>
+			<down x="+0" y="+0"/>
+
+			<rhythmzone mirror="false" fade="200">
+				<size width="1802" height="55"/>
+				<pos x="+0" y="+0"/>
+				<colors deck1="#009fd2"/>
+				<rhythm y="+0" height="49"/>
+				<grid height="6" width="6" maxwidth="10">
+					<pos y1="+49"/>
+				</grid>
+				<cue y="+2" height="49">
+					<text dx="15" dy="-1" size="14" />
+					<mask width="15" height="110" x="1746" y="2021"/>
+				</cue>
+				<overlay>
+					<size width="2" height="55"/>
+					<pos x="963" y="46"/>
+					<background x="963" y="2668"/>
+				</overlay>
+			</rhythmzone>
+			<rhythmzone mirror="false" fade="200">
+				<size width="1802" height="55"/>
+				<pos x="+0" y="+55"/>
+				<colors deck2="#cd0f10"/>
+				<rhythm y="+6" height="49"/>
+				<grid height="6" width="6" maxwidth="10">
+					<pos y2="+0"/>
+				</grid>
+				<cue y="+6" height="49">
+					<text dx="15" dy="-1" size="14" />
+					<mask width="15" height="110" x="1746" y="2021"/>
+				</cue>
+				<overlay>
+					<size width="2" height="55"/>
+					<pos x="963" y="+0"/>
+					<background x="963" y="2668"/>
+				</overlay>
+			</rhythmzone>
+
+		</panel>
+
+
+		<panel name="scratch" group="waveform" visible="no">
+			<size width="1802" height="110"/>
+			<pos x="62" y="46"/>
+			<down x="+0" y="+0"/>
+
+			<visual type="color" source="constant '#007097'" visibility="60%">
+				<tooltip></tooltip>
+				<size width="1802" height="53"/>
+				<pos x="+0" y="+1"/>
+			</visual>
+			<visual type="color" source="constant '#8c0709'" visibility="60%">
+				<tooltip></tooltip>
+				<size width="1802" height="53"/>
+				<pos x="+0" y="+55+1"/>
+			</visual>
+
+
+			<scratchwave deck="1" orientation="horizontal">
+				<size width="1802" height="47"/>
+				<pos x="+0" y="+5"/>
+				<grid mainsize="3" size="1" height="10" pos="-2" maincolor="#008ce1" color="white" transparency="1" mirrored="true" background="no" backgroundshaded="yes" backgroundcolor="white"/>
+				<cue y="+0" height="47">
+					<text dx="15" dy="-1" size="14" />
+					<mask width="15" height="47" x="1746" y="2021"/>
+				</cue>
+				<overlay>
+					<size width="1802" height="51"/>
+					<pos x="+0" y="+0"/>
+					<background x="62" y="2668"/>
+				</overlay>
+			</scratchwave>
+			<scratchwave deck="2" orientation="horizontal">
+				<size width="1802" height="47"/>
+				<pos x="+0" y="+5+55"/>
+				<grid mainsize="3" size="1" height="10" pos="-2" maincolor="red" color="white" transparency="1" mirrored="true" background="no" backgroundshaded="yes" backgroundcolor="white"/>
+				<cue y="+0" height="47">
+					<text dx="15" dy="-1" size="14" />
+					<mask width="15" height="47" x="1746" y="2021"/>
+				</cue>
+				<overlay>
+					<size width="1802" height="51"/>
+					<pos x="+0" y="+0"/>
+					<background x="62" y="2668"/>
+				</overlay>
+			</scratchwave>
+
+		</panel>
+
+		<visual visibility="var '@$options' 1">
+			<tooltip></tooltip>
+			<pos x="0" y="563"/>
+			<size width="1920" height="54"/>
+			<off x="+0" y="1725"/>
+		</visual>
+
+		<dropzone deck="left">
+			<pos x="10" y="129+30"/>
+			<size width="629" height="349"/>
+		</dropzone>
+		<dropzone deck="right">
+			<pos x="1282" y="129+30"/>
+			<size width="629" height="349"/>
+		</dropzone>
+
+		<group name="deck1" x="10" y="129+30">
+
+			<deck deck="left">
+
+				<video source="deck" visibility="var '@videoview' 0">
+					<pos x="+0" y="+0"/>
+					<size width="629" height="349"/>
+				</video>
+
+				<panel name="audiodeck1" visibility="var '@videoview' 1">
+					<pos x="+0" y="+5"/>
+					<video source="deck">
+						<pos x="+167" y="+20"/>
+						<size width="275" height="160"/>
+					</video>
+					<cover  >
+						<pos x="+50" y="+60"/>
+						<size width="100" height="100"/>
+					</cover>
+					<visual>
+						<Tooltip></Tooltip>
+						<pos x="+460" y="+55"/>
+						<size width="112" height="112"/>
+						<off x="66" y="2341"/>
+					</visual>
+					<visual type="rotation" source="get_rotation">
+						<Tooltip></Tooltip>
+						<pos x="+460" y="+55"/>
+						<size width="112" height="112"/>
+						<on x="386" y="2341"/>
+					</visual>
+					<visual type="circle" source="get position">
+						<Tooltip></Tooltip>
+						<pos x="+460" y="+55"/>
+						<size width="112" height="112"/>
+						<on x="226" y="2341"/>
+					</visual>
+					<scratch>
+						<tooltip>Scratch or Nudge\n Use the VINYL button to toggle mode</tooltip>
+						<pos x="+460" y="+55"/>
+						<size width="112" height="112"/>
+						<mousemask x="66" y="2481"/>
+					</scratch>
+
+
+				</panel>
+
+
+
+
+				<panel name="opdbuttons" x="+4" y="+405" visibility="var '@$options' 1">
+					<button action="cycle '@$hc' 4" query="var '@$hc' 1" rightclick="edit_poi" visibility="var '@$hc' 2 ? false : var '@$hc' 3 ? false : true">
+						<tooltip>HotCues on Screen\nRight-click to open POI Editor</tooltip>
+						<pos x="+0" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="3" y="1306"/>
+						<on x="3" y="1366"/>
+						<over x="3" y="1421"/>
+					</button>
+					<button action="cycle '@$hc' 4" query="on" rightclick="edit_poi" visibility="var '@$hc' 0 ? false : var '@$hc' 1 ? false : true">
+						<tooltip>HotCues on Screen\nRight-click to open POI Editor</tooltip>
+						<pos x="+0" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="50" y="1306"/>
+						<on x="50" y="1366"/>
+						<over x="50" y="1421"/>
+					</button>
+					<button action="toggle '@$loopi'">
+						<tooltip>Show Loops on Screen</tooltip>
+						<pos x="+0+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="97" y="1306"/>
+						<on x="97" y="1366"/>
+						<over x="97" y="1421"/>
+					</button>
+					<button action="cycle '@$padsi' 3" query="var '@$padsi' 1" visibility="var '@$padsi' 2 ? false : true">
+						<tooltip>Show Pads on Screen</tooltip>
+						<pos x="+0+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="220" y="1900"/>
+						<on x="220" y="1960"/>
+						<over x="220" y="2015"/>
+					</button>
+					<button action="cycle '@$padsi' 3" query="on" visibility="var '@$padsi' 2">
+						<tooltip>Show Pads on Screen</tooltip>
+						<pos x="+0+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="282" y="1900"/>
+						<on x="282" y="1960"/>
+						<over x="282" y="2015"/>
+					</button>
+					<button action="cycle '@$fxi' 3" query="var '@$fxi' 1" visibility="var '@$fxi' 2 ? false : true">
+						<tooltip>Show Effects on Screen</tooltip>
+						<pos x="+0+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="144" y="1306"/>
+						<on x="144" y="1366"/>
+						<over x="144" y="1421"/>
+					</button>
+					<button action="cycle '@$fxi' 3" query="var '@$fxi' 2" visibility="var '@$fxi' 2">
+						<tooltip>Show Effects on Screen</tooltip>
+						<pos x="+0+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="475" y="1306"/>
+						<on x="475" y="1366"/>
+						<over x="475" y="1421"/>
+					</button>
+					<button action="toggle '@$keyi'">
+						<tooltip>Show Key value on Screen</tooltip>
+						<pos x="+48+48+48+48+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="345" y="1900"/>
+						<on x="345" y="1960"/>
+						<over x="345" y="2015"/>
+					</button>
+
+
+					<button action="toggle '@$pitchi'">
+						<tooltip>Show Pitch Slider on Screen</tooltip>
+						<pos x="+0+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="238" y="1306"/>
+						<on x="238" y="1366"/>
+						<over x="238" y="1421"/>
+					</button>
+					<button action="toggle '@$pitchinfo'">
+						<tooltip>Show Pitch Info on Screen</tooltip>
+						<pos x="+0+48+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="521" y="1306"/>
+						<on x="521" y="1366"/>
+						<over x="521" y="1421"/>
+					</button>
+					<button action="toggle '@$bpmi'">
+						<tooltip>Show BPM/Sync on Screen</tooltip>
+						<pos x="+0+48+48+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="427" y="1306"/>
+						<on x="427" y="1366"/>
+						<over x="427" y="1421"/>
+					</button>
+					<button action="toggle '@$controli'">
+						<tooltip>Show Deck Controls on Screen</tooltip>
+						<pos x="+0+48+48+48+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="285" y="1306"/>
+						<on x="285" y="1366"/>
+						<over x="285" y="1421"/>
+					</button>
+					<button action="toggle '@$decki'">
+						<tooltip>Show Track Times on Screen</tooltip>
+						<pos x="+0+48+48+48+48+48+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="332" y="1306"/>
+						<on x="332" y="1366"/>
+						<over x="332" y="1421"/>
+					</button>
+					<button action="toggle '@$texti'">
+						<tooltip>Show Track Title on Screen</tooltip>
+						<pos x="+4+48+48+48+48+48+48+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="382" y="1306"/>
+						<on x="382" y="1366"/>
+						<over x="382" y="1421"/>
+					</button>
+					<button action="toggle '@videoview'">
+						<tooltip>Show Large or Small Video Preview</tooltip>
+						<pos x="+4+48+48+48+48+48+48+48+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="1677" y="1479"/>
+						<on x="1677" y="1539"/>
+						<over x="1677" y="1594"/>
+					</button>
+					<button action="toggle '@$cuenumber'">
+						<tooltip>Show HotCue Numbers on Song Progress bar</tooltip>
+						<pos x="+4+48+48+48+48+48+48+48+48+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="742" y="1119"/>
+						<on x="742" y="1179"/>
+						<over x="742" y="1234"/>
+					</button>
+				</panel>
+
+				<panel name="onscreen" visibility="loaded ? var '@$hidefocus' 0">
+					<panel name="times" x="+0" y="+0" visibility="var '@$decki'">
+						<button action="nothing">
+							<tooltip></tooltip>
+							<size width="90" height="30"/>
+							<pos x="+11" y="+5"/>
+							<off x="40" y="1490"/>
+							<text size="28" color="white" weight="bold" align="left" scroll="yes" format="%Pspent"/>
+						</button>
+						<button action="songpos_remain 30000ms ? blink : nothing">
+							<tooltip></tooltip>
+							<size width="90" height="30"/>
+							<pos x="+540-4" y="+5"/>
+							<off x="40" y="1490"/>
+							<on x="40" y="1490"/>
+							<text size="28" color="white" weight="bold" align="left" scroll="yes" format="%Pleft"/>
+							<textselected size="28" color="black" weight="bold" align="left" scroll="yes" format="%Pleft"/>
+						</button>
+					</panel>
+
+					<panel name="keys" x="+0" y="+35" visibility="var '@$keyi'">
+						<button action="cycle '@$keyvalue' 3">
+							<tooltip></tooltip>
+							<size width="70" height="30"/>
+							<pos x="+510" y="+0"/>
+							<off x="40" y="1490"/>
+							<text size="20" color="white" weight="bold" align="center" scroll="yes" action="var '@$keyvalue' 1 ? get_text '♪ `get_key`' : var '@$keyvalue' 2 ? get_text '♪ `get_key_modifier`' : get_text '♪ `get_harmonic`'"/>
+						</button>
+					</panel>
+
+					<panel name="titles" x="+0" y="+0" visibility="var '@$texti'">
+						<button action="toggle 'scrol'">
+							<Tooltip>Click to scroll Artist-title</Tooltip>
+							<size width="427" height="30"/>
+							<pos x="+101" y="+5"/>
+							<off x="40" y="1490"/>
+							<text dx="10" width="408" size="20" color="white" weight="bold" align="center" scroll="no" format="%Author-%Title"/>
+							<textselected dx="10" width="408" size="20" color="white" weight="bold" align="center" scroll="yes" format="%Author-%Title"/>
+						</button>
+					</panel>
+
+					<panel name="bpms" x="+540-16" y="+301" visibility="var '@$bpmi'">
+						<button action="sync" rightclick="pitch_reset">
+							<Tooltip>Click to SYNC with the other deck\nright-click to gradually reset to original tempo</Tooltip>
+							<size width="90" height="37"/>
+							<pos x="+9" y="+0"/>
+							<off x="40" y="1490"/>
+							<text dx="-5" width="85" size="28" color="white" weight="bold" align="right" scroll="yes" format="%Pbpmex"/>
+						</button>
+					</panel>
+
+					<panel name="pitch" x="+540-12" y="+40" visibility="var '@$pitchinfo'">
+						<button action="pitch_range +1">
+							<Tooltip>Pitch Range\nClick to select the next one</Tooltip>
+							<size width="60" height="18"/>
+							<pos x="+35" y="+219"/>
+							<off x="40" y="1490"/>
+							<text size="14" color="white" weight="bold" align="center" scroll="yes" format="%pitchrange %"/>
+						</button>
+						<button action="pitch_reset" rightclick="pitch 100%">
+							<Tooltip>Pitch value\nClick to gradually reset pitch tozero\nRight-click to instantly reset</Tooltip>
+							<size width="60" height="22"/>
+							<pos x="+35" y="+239"/>
+							<off x="40" y="1490"/>
+							<text size="20" color="white" weight="bold" align="center" scroll="yes" format="%Ppitch"/>
+						</button>
+					</panel>
+
+					<panel name="pitchslider" x="+535" y="+50" visibility="var '@$pitchi'">
+						<slider action="pitch_slider" direction="down" orientation="vertical">
+							<pos x="+50" y="+0"/>
+							<size width="30" height="200"/>
+							<on x="1328" y="1375"/>
+							<off x="1378" y="1375"/>
+							<fader>
+								<pos x="1429" y="1462"/>
+								<size width="30" height="10"/>
+								<over x="1429" y="1482"/>
+							</fader>
+						</slider>
+
+
+					</panel>
+
+					<panel name="loopbuttons" x="+484-200" y="+301" visibility="var '@$loopi'">
+						<visual source="loop_position" type="circle">
+							<tooltip></tooltip>
+							<pos x="+0" y="+0"/>
+							<size width="38" height="38"/>
+							<off x="75" y="1148"/>
+							<on x="75" y="1188"/>
+						</visual>
+						<button action="loop">
+							<tooltip>LOOP</tooltip>
+							<pos x="+1" y="+0"/>
+							<size width="38" height="38"/>
+							<off x="126" y="1148"/>
+							<on x="126" y="1188"/>
+							<over x="126" y="1228"/>
+							<text dy="1" font="arial" size="20" weight="bold" color="white" align="center" format="%loop"/>
+							<textselected dy="1" font="arial" size="20" weight="bold" color="black" align="center" format="%loop"/>
+						</button>
+						<button action="loop_half">
+							<tooltip>LOOP HALF</tooltip>
+							<pos x="-45" y="+0"/>
+							<size width="40" height="37"/>
+							<off x="23" y="1111"/>
+							<down x="23" y="1151"/>
+							<over x="23" y="1231"/>
+						</button>
+						<button action="loop_double">
+							<tooltip>LOOP DOUBLE</tooltip>
+							<pos x="+45" y="+0"/>
+							<size width="40" height="37"/>
+							<off x="23" y="1111"/>
+							<down x="393" y="1151"/>
+							<over x="393" y="1231"/>
+
+						</button>
+
+					</panel>
+
+					<panel name="hotcuebuttons" x="+5" y="+41" visibility="var '@$hc' 1">
+						<button action="hot_cue 1" rightclick="delete_cue 1">
+							<tooltip>HOT CUE 1</tooltip>
+							<pos x="+0" y="+0"/>
+							<size width="37" height="46"/>
+							<off x="513" y="1097"/>
+							<selected x="513" y="1197"/>
+							<over x="513" y="1147"/>
+							<overselected x="513" y="1247"/>
+						</button>
+						<button action="hot_cue 2" rightclick="delete_cue 2">
+							<tooltip>HOT CUE 2</tooltip>
+							<pos x="+0" y="+0+55"/>
+							<size width="37" height="46"/>
+							<off x="513" y="1097"/>
+							<selected x="513" y="1197"/>
+							<over x="513" y="1147"/>
+							<overselected x="513" y="1247"/>
+						</button>
+						<button action="hot_cue 3" rightclick="delete_cue 3">
+							<tooltip>HOT CUE 3</tooltip>
+							<pos x="+0" y="+0+55+55"/>
+							<size width="37" height="46"/>
+							<off x="513" y="1097"/>
+							<selected x="513" y="1197"/>
+							<over x="513" y="1147"/>
+							<overselected x="513" y="1247"/>
+						</button>
+						<button action="hot_cue 4" rightclick="delete_cue 4">
+							<tooltip>HOT CUE 4</tooltip>
+							<pos x="+0" y="+0+55+55+55"/>
+							<size width="37" height="46"/>
+							<off x="513" y="1097"/>
+							<selected x="513" y="1197"/>
+							<over x="513" y="1147"/>
+							<overselected x="513" y="1247"/>
+						</button>
+					</panel>
+
+					<panel name="hotcuebuttons" x="+5" y="+41" visibility="var '@$hc' 2">
+						<button action="hot_cue 1" rightclick="delete_cue 1">
+							<tooltip>HOT CUE 1</tooltip>
+							<pos x="+0" y="+0"/>
+							<size width="50" height="34"/>
+							<off x="40" y="1490"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" format="%Pcue1\n%Pfromcue1"/>
+						</button>
+						<button action="hot_cue 2" rightclick="delete_cue 2">
+							<tooltip>HOT CUE 2</tooltip>
+							<pos x="+0" y="+0+55"/>
+							<size width="50" height="34"/>
+							<off x="40" y="1490"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" format="%Pcue2\n%Pfromcue2"/>
+						</button>
+						<button action="hot_cue 3" rightclick="delete_cue 3">
+							<tooltip>HOT CUE 3</tooltip>
+							<pos x="+0" y="+0+55+55"/>
+							<size width="50" height="34"/>
+							<off x="40" y="1490"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" format="%Pcue3\n%Pfromcue3"/>
+						</button>
+						<button action="hot_cue 4" rightclick="delete_cue 4">
+							<tooltip>HOT CUE 4</tooltip>
+							<pos x="+0" y="+0+55+55+55"/>
+							<size width="50" height="34"/>
+							<off x="40" y="1490"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" format="%Pcue4\n%Pfromcue4"/>
+						</button>
+					</panel>
+
+					<panel name="hotcuebuttons" x="+5" y="+41" visibility="var '@$hc' 3">
+						<button action="hot_cue 1" rightclick="delete_cue 1">
+							<tooltip>HOT CUE 1</tooltip>
+							<pos x="+0" y="+0"/>
+							<size width="50" height="34"/>
+							<off x="40" y="1490"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" format="%namecue1\n%Bfromcue1"/>
+						</button>
+						<button action="hot_cue 2" rightclick="delete_cue 2">
+							<tooltip>HOT CUE 2</tooltip>
+							<pos x="+0" y="+0+55"/>
+							<size width="50" height="34"/>
+							<off x="40" y="1490"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" format="%namecue2\n%Bfromcue2"/>
+						</button>
+						<button action="hot_cue 3" rightclick="delete_cue 3">
+							<tooltip>HOT CUE 3</tooltip>
+							<pos x="+0" y="+0+55+55"/>
+							<size width="50" height="34"/>
+							<off x="40" y="1490"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" format="%namecue3\n%Bfromcue3"/>
+						</button>
+						<button action="hot_cue 4" rightclick="delete_cue 4">
+							<tooltip>HOT CUE 4</tooltip>
+							<pos x="+0" y="+0+55+55+55"/>
+							<size width="50" height="34"/>
+							<off x="40" y="1490"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" format="%namecue4\n%Bfromcue4"/>
+						</button>
+					</panel>
+
+					<panel name="controlbuttons" x="+484" y="+301" visibility="var '@$controli'">
+						<button action="play_pause">
+							<tooltip>PLAY PAUSE</tooltip>
+							<pos x="+0" y="+0"/>
+							<size width="40" height="37"/>
+							<off x="393" y="1111"/>
+							<on x="393" y="1151"/>
+							<over x="393" y="1231"/>
+							<overselected x="393" y="1191"/>
+						</button>
+
+						<button action="stop">
+							<tooltip>STOP</tooltip>
+							<pos x="-50" y="+0"/>
+							<size width="40" height="37"/>
+							<off x="393-170" y="1111"/>
+							<on x="393-170" y="1151"/>
+							<over x="393-170" y="1231"/>
+							<overselected x="393-170" y="1191"/>
+						</button>
+						<button action="cue">
+							<tooltip>CUE</tooltip>
+							<pos x="-50-50" y="+0"/>
+							<size width="40" height="37"/>
+							<off x="393-170-50" y="1111"/>
+							<on x="393-170-50" y="1151"/>
+							<over x="393-170-50" y="1231"/>
+							<overselected x="393-170-50" y="1191"/>
+						</button>
+					</panel>
+
+					<panel name="fxbuttons" x="+20" y="+301" visibility="var '@$fxi' 0 ? false : true">
+						<button action="effect_active">
+							<size width="123" height="37"/>
+							<pos x="+0" y="+0"/>
+							<off x="40" y="1490"/>
+							<text size="22" color="white" weight="bold" align="center" scroll="yes" action="get_effect_name"/>
+							<textselected size="22" color="#00FF5A" weight="bold" align="center" scroll="yes" action="get_effect_name"/>
+						</button>
+						<button action="effect_select">
+							<pos x="+125" y="+0"/>
+							<size width="40" height="37"/>
+							<off x="285" y="1111"/>
+							<down x="285" y="1151"/>
+							<over x="285" y="1231"/>
+						</button>
+					</panel>
+
+					<panel name="fxsliders" x="+20" y="+301" visibility="var '@$fxi' 2">
+
+						<panel name="slider1" x="+0" y="+0" visibility="effect_has_slider 1">
+							<textzone>
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<text size="16" color="white" weight="bold" align="center" scroll="yes" action="get_effect_slider_label 1"/>
+							</textzone>
+							<visual >
+								<tooltip></tooltip>
+								<pos x="+0" y="-20"/>
+								<size width="65" height="20"/>
+								<off x="740" y="1397"/>
+							</visual>
+							<slider action="effect_slider 1" orientation="horizontal" visibility="effect_active">
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<on x="742" y="1369"/>
+								<off x="742" y="1339"/>
+								<fader>
+									<size width="1" height="16"/>
+									<pos x="570" y="1160"/>
+								</fader>
+							</slider>
+							<slider action="effect_slider 1" orientation="horizontal" visibility="not effect_active">
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<on x="742" y="1309"/>
+								<off x="742" y="1339"/>
+								<fader>
+									<size width="1" height="16"/>
+									<pos x="570" y="1160"/>
+								</fader>
+							</slider>
+							<textzone>
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<text size="16" color="white" weight="bold" align="center" scroll="yes" action="get_effect_slider_label 1"/>
+							</textzone>
+						</panel>
+
+
+						<panel name="slider2" x="+65" y="+0" visibility="effect_has_slider 2">
+							<textzone>
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<text size="16" color="white" weight="bold" align="center" scroll="yes" action="get_effect_slider_label 2"/>
+							</textzone>
+							<visual >
+								<tooltip></tooltip>
+								<pos x="+0" y="-20"/>
+								<size width="65" height="20"/>
+								<off x="740" y="1397"/>
+							</visual>
+							<slider action="effect_slider 2" orientation="horizontal" visibility="effect_active">
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<on x="742" y="1369"/>
+								<off x="742" y="1339"/>
+								<fader>
+									<size width="1" height="16"/>
+									<pos x="570" y="1160"/>
+								</fader>
+							</slider>
+							<slider action="effect_slider 2" orientation="horizontal" visibility="not effect_active">
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<on x="742" y="1309"/>
+								<off x="742" y="1339"/>
+								<fader>
+									<size width="1" height="16"/>
+									<pos x="570" y="1160"/>
+								</fader>
+							</slider>
+							<textzone>
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<text size="16" color="white" weight="bold" align="center" scroll="yes" action="get_effect_slider_label 2"/>
+							</textzone>
+						</panel>
+
+					</panel>
+
+					<panel name="padsinfo" x="+30" y="+210" visibility="var '@$padsi' 2">
+
+						<button class="padprm" action="pad_param +1" rightclick="pad_param -1">
+							<tooltip>Param 1. Click to increase/Right-click to decrease </tooltip>
+							<pos x="+180" y="+0"/>
+							<text action="pad_param"/>
+						</button>
+						<button class="padprm" action="pad_param2 +1" rightclick="pad_param2 -1">
+							<tooltip>Param 2. Click to increase/Right-click to decrease </tooltip>
+							<pos x="+180+180" y="+0"/>
+							<text action="pad_param2"/>
+						</button>
+					</panel>
+
+					<panel name="pads" x="+30" y="+220" visibility="var '@$padsi'">
+
+						<button class="padm" action="pad_page">
+							<pos x="+40" y="+10"/>
+							<text action="pad_page &amp; param_uppercase"/>
+						</button>
+
+						<button class="padct" action="pad 1" rightclick="padshift 1">
+							<pos x="+160" y="+10"/>
+							<text action="pad 1"/>
+							<textselected action="pad 1"/>
+						</button>
+						<button class="padct" action="pad 2" rightclick="padshift 2">
+							<pos x="+160+90" y="+10"/>
+							<text action="pad 2"/>
+							<textselected action="pad 2"/>
+						</button>
+						<button class="padct" action="pad 3" rightclick="padshift 3">
+							<pos x="+160+90+90" y="+10"/>
+							<text action="pad 3"/>
+							<textselected action="pad 3"/>
+						</button>
+						<button class="padct" action="pad 4" rightclick="padshift 4">
+							<pos x="+160+90+90+90" y="+10"/>
+							<text action="pad 4"/>
+							<textselected action="pad 4"/>
+						</button>
+						<button class="padct" action="pad 5" rightclick="padshift 5">
+							<pos x="+160" y="+10+34"/>
+							<text action="pad 5"/>
+							<textselected action="pad 5"/>
+						</button>
+						<button class="padct" action="pad 6" rightclick="padshift 6">
+							<pos x="+160+90" y="+10+34"/>
+							<text action="pad 6"/>
+							<textselected action="pad 6"/>
+						</button>
+						<button class="padct" action="pad 7" rightclick="padshift 7">
+							<pos x="+160+90+90" y="+10+34"/>
+							<text action="pad 7"/>
+							<textselected action="pad 7"/>
+						</button>
+						<button class="padct" action="pad 8" rightclick="padshift 8">
+							<pos x="+160+90+90+90" y="+10+34"/>
+							<text action="pad 8"/>
+							<textselected action="pad 8"/>
+						</button>
+					</panel>
+
+				</panel>
+
+				<songpos>
+					<size width="618" height="38"/>
+					<pos x="+5" y="+363"/>
+					<cues>
+						<size width="15" height="38"/>
+						<up x="592" y="1101"/>
+					</cues>
+				</songpos>
+
+				<panel name="songposnum" x="+5" y="+363+26" visibility="loaded ? var '@$cuenumber' 1">
+					<slider action="cue_pos 1" visibility="automix ? false : hot_cue 1">
+						<size width="618+15" height="13"/>
+						<pos x="-7" y="+0"/>
+						<fader>
+							<size width="15" height="13"/>
+							<pos x="795" y="1200"/>
+						</fader>
+					</slider>
+					<slider action="cue_pos 2" visibility="automix ? false : hot_cue 2">
+						<size width="618+15" height="13"/>
+						<pos x="-7" y="+0"/>
+						<fader>
+							<size width="15" height="13"/>
+							<pos x="815" y="1200"/>
+						</fader>
+					</slider>
+					<slider action="cue_pos 3" visibility="automix ? false : hot_cue 3">
+						<size width="618+15" height="13"/>
+						<pos x="-7" y="+0"/>
+						<fader>
+							<size width="15" height="13"/>
+							<pos x="835" y="1200"/>
+						</fader>
+					</slider>
+					<slider action="cue_pos 4" visibility="automix ? false : hot_cue 4">
+						<size width="618+15" height="13"/>
+						<pos x="-7" y="+0"/>
+						<fader>
+							<size width="15" height="13"/>
+							<pos x="855" y="1200"/>
+						</fader>
+					</slider>
+					<slider action="cue_pos 5" visibility="automix ? false : hot_cue 5">
+						<size width="618+15" height="13"/>
+						<pos x="-7" y="+0"/>
+						<fader>
+							<size width="15" height="13"/>
+							<pos x="875" y="1200"/>
+						</fader>
+					</slider>
+					<slider action="cue_pos 6" visibility="automix ? false : hot_cue 6">
+						<size width="618+15" height="13"/>
+						<pos x="-7" y="+0"/>
+						<fader>
+							<size width="15" height="13"/>
+							<pos x="895" y="1200"/>
+						</fader>
+					</slider>
+					<slider action="cue_pos 7" visibility="automix ? false : hot_cue 7">
+						<size width="618+15" height="13"/>
+						<pos x="-7" y="+0"/>
+						<fader>
+							<size width="15" height="15"/>
+							<pos x="915" y="1200"/>
+						</fader>
+					</slider>
+					<slider action="cue_pos 8" visibility="automix ? false : hot_cue 8">
+						<size width="618+15" height="13"/>
+						<pos x="-7" y="+0"/>
+						<fader>
+							<size width="15" height="13"/>
+							<pos x="935" y="1200"/>
+						</fader>
+					</slider>
+				</panel>
+
+				<textzone visibility="not loaded">
+					<size width="605" height="25"/>
+					<pos x="+10" y="+150"/>
+					<text size="22" color="white" weight="bold" align="center" scroll="no" format="Drag n drop a video file here"/>
+				</textzone>
+
+
+			</deck>
+
+		</group>
+
+		<group name="mixer" x="10+636" y="129+30">
+
+			<video source="master" visibility="var '@$videomas' 0 ? var '@$videoviewmas' 0">
+				<pos x="+0" y="+0"/>
+				<size width="629" height="349"/>
+			</video>
+			<video source="master" visibility="var '@$videomas' 0 ? var '@$videoviewmas' 1">
+				<pos x="+125" y="+50"/>
+				<size width="378" height="210"/>
+			</video>
+
+			<panel name="mixeronscreen" visibility="var '@$hidefocus' 0">
+				<deck deck="1">
+
+					<panel visibility="var '@$scratchi' 1">
+						<pos x="+0" y="+1"/>
+
+						<visual type="color" source="constant '#007097'" visibility="60%">
+							<Tooltip></tooltip>
+							<size width="78" height="348"/>
+							<pos x="+126" y="+0"/>
+						</visual>
+						<scratchwave orientation="vertical">
+							<size width="72" height="348"/>
+							<pos x="+128" y="+0"/>
+							<grid mainsize="3" size="1" height="10" pos="-2" maincolor="#008ce1" color="white" transparency="1" mirrored="true" background="no" backgroundshaded="yes" backgroundcolor="white"/>
+
+							<overlay>
+								<size width="80" height="348"/>
+								<pos x="+0" y="+0"/>
+								<background x="1806" y="2274"/>
+							</overlay>
+						</scratchwave>
+
+					</panel>
+
+					<panel x="+10" y="+61" visibility="var '@$vui'">
+						<visual source="get_level" type="linear" orientation="vertical">
+							<pos x="+0" y="+0"/>
+							<size width="30" height="200"/>
+							<off x="639" y="1366"/>
+							<on x="679" y="1366"/>
+						</visual>
+					</panel>
+
+					<panel x="+35" y="+61" visibility="var '@$voli'">
+						<slider action="volume" orientation="vertical">
+							<pos x="+0" y="+0"/>
+							<size width="30" height="200"/>
+							<off x="1482" y="1375"/>
+							<on x="1532" y="1375"/>
+							<fader>
+								<pos x="1429" y="1462"/>
+								<size width="30" height="10"/>
+								<over x="1429" y="1482"/>
+							</fader>
+						</slider>
+					</panel>
+
+					<panel x="+10" y="+50+20-65" visibility="var '@$gi' 1">
+						<slider action="gain" dblclick="gain 50%" orientation="circle" relative="no" rightclick="temporary" frommiddle="true">
+							<pos x="+0" y="+0"/>
+							<circle direction="cw" anglemin="-150" anglemax="150"/>
+							<size width="54" height="54"/>
+							<off x="827" y="1303"/>
+							<on x="827" y="1363"/>
+						</slider>
+						<slider action="gain" dblclick="gain 50%" orientation="round">
+							<pos x="+0" y="+0"/>
+							<size width="54" height="54"/>
+							<up x="887" y="1303"/>
+							<mousemask x="887" y="1363"/>
+							<fader anglemin="-150" anglemax="+150">
+								<size width="54" height="54"/>
+								<pos x="887" y="1303"/>
+								<over x="827" y="1423"/>
+							</fader>
+						</slider>
+						<textzone>
+							<pos x="+0" y="+0"/>
+							<size width="54" height="54"/>
+							<up x="887" y="1303"/>
+							<text size="15" align="center" weight="bold" color="white" font="arial" format="%Plevel"/>
+						</textzone>
+					</panel>
+
+					<panel name="filter" x="+69" y="+50+20-55" visibility="var '@$filteri' 1">
+						<slider action="filter" dblclick="filter 50%" orientation="circle" relative="no" rightclick="temporary" frommiddle="true">
+							<pos x="+0" y="+0"/>
+							<circle direction="cw" anglemin="-150" anglemax="150"/>
+							<size width="54" height="54"/>
+							<off x="827" y="1303"/>
+							<on x="827" y="1363"/>
+						</slider>
+						<slider action="filter" dblclick="filter 50%" orientation="round">
+							<pos x="+0" y="+0"/>
+							<size width="54" height="54"/>
+							<up x="887" y="1303"/>
+							<mousemask x="887" y="1363"/>
+							<fader anglemin="-150" anglemax="+150">
+								<size width="54" height="54"/>
+								<pos x="887" y="1303"/>
+								<over x="827" y="1423"/>
+							</fader>
+						</slider>
+						<textzone>
+							<pos x="+0" y="+0"/>
+							<size width="54" height="54"/>
+							<up x="887" y="1303"/>
+							<text size="15" align="center" weight="bold" color="white" font="arial" action="filter_label"/>
+						</textzone>
+					</panel>
+
+					<panel name="eqs" x="+69" y="+80" visibility="var '@$eqi' 1">
+						<group name="eqhigh" x="+0" y="+0">
+							<slider action="eq_high" dblclick="eq_high 50%" orientation="circle" relative="no" rightclick="temporary" frommiddle="true">
+								<pos x="+0" y="+0"/>
+								<circle direction="cw" anglemin="-150" anglemax="150"/>
+								<size width="54" height="54"/>
+								<off x="827" y="1303"/>
+								<on x="827" y="1363"/>
+							</slider>
+							<slider action="eq_high" dblclick="eq_high 50%" orientation="round">
+								<pos x="+0" y="+0"/>
+								<size width="54" height="54"/>
+								<up x="887" y="1303"/>
+								<mousemask x="887" y="1363"/>
+								<fader anglemin="-150" anglemax="+150">
+									<size width="54" height="54"/>
+									<pos x="887" y="1303"/>
+									<over x="827" y="1423"/>
+								</fader>
+							</slider>
+							<textzone>
+								<pos x="+0" y="+0"/>
+								<size width="54" height="54"/>
+								<up x="887" y="1303"/>
+								<text size="15" align="center" color="white" font="arial" format="HI"/>
+							</textzone>
+						</group>
+
+						<group name="eqmid" x="+0" y="+65">
+							<slider action="eq_mid" dblclick="eq_mid 50%" orientation="circle" relative="no" rightclick="temporary" frommiddle="true">
+								<pos x="+0" y="+0"/>
+								<circle direction="cw" anglemin="-150" anglemax="150"/>
+								<size width="54" height="54"/>
+								<off x="827" y="1303"/>
+								<on x="827" y="1363"/>
+							</slider>
+							<slider action="eq_mid" dblclick="eq_mid 50%" orientation="round">
+								<pos x="+0" y="+0"/>
+								<size width="54" height="54"/>
+								<up x="887" y="1303"/>
+								<mousemask x="887" y="1363"/>
+								<fader anglemin="-150" anglemax="+150">
+									<size width="54" height="54"/>
+									<pos x="887" y="1303"/>
+									<over x="827" y="1423"/>
+								</fader>
+							</slider>
+							<textzone>
+								<pos x="+0" y="+0"/>
+								<size width="54" height="54"/>
+								<up x="887" y="1303"/>
+								<text size="15" align="center" color="white" font="arial" format="MI"/>
+							</textzone>
+						</group>
+
+						<group name="eqlow" x="+0" y="+65+65">
+							<slider action="eq_low" dblclick="eq_low 50%" orientation="circle" relative="no" rightclick="temporary" frommiddle="true">
+								<pos x="+0" y="+0"/>
+								<circle direction="cw" anglemin="-150" anglemax="150"/>
+								<size width="54" height="54"/>
+								<off x="827" y="1303"/>
+								<on x="827" y="1363"/>
+							</slider>
+							<slider action="eq_low" dblclick="eq_low 50%" orientation="round">
+								<pos x="+0" y="+0"/>
+								<size width="54" height="54"/>
+								<up x="887" y="1303"/>
+								<mousemask x="887" y="1363"/>
+								<fader anglemin="-150" anglemax="+150">
+									<size width="54" height="54"/>
+									<pos x="887" y="1303"/>
+									<over x="827" y="1423"/>
+								</fader>
+							</slider>
+							<textzone>
+								<pos x="+0" y="+0"/>
+								<size width="54" height="54"/>
+								<up x="887" y="1303"/>
+								<text size="15" align="center" color="white" font="arial" format="LO"/>
+							</textzone>
+						</group>
+
+
+					</panel>
+
+				</deck>
+
+				<deck deck="2">
+
+					<panel name="sctatch2" x="+300" y="+1" visibility="var '@$scratchi' 1">
+
+						<visual type="color" source="constant '#8c0709'" visibility="60%">
+							<Tooltip></tooltip>
+							<size width="78" height="348"/>
+							<pos x="+126" y="+0"/>
+						</visual>
+						<scratchwave orientation="vertical">
+							<size width="76" height="348"/>
+							<pos x="+126" y="+0"/>
+							<grid mainsize="3" size="1" height="10" pos="-2" maincolor="red" color="white" transparency="1" mirrored="true" background="no" backgroundshaded="yes" backgroundcolor="white"/>
+							<overlay>
+								<size width="80" height="348"/>
+								<pos x="+0" y="+0"/>
+								<background x="1806" y="2274"/>
+							</overlay>
+						</scratchwave>
+
+					</panel>
+
+					<panel x="+600" y="+61" visibility="var '@$vui'">
+						<visual source="get_level" type="linear" orientation="vertical">
+							<pos x="+0" y="+0"/>
+							<size width="30" height="200"/>
+							<off x="639" y="1366"/>
+							<on x="679" y="1366"/>
+						</visual>
+					</panel>
+
+					<panel x="+600-35" y="+61" visibility="var '@$voli'">
+						<slider action="volume" orientation="vertical">
+							<pos x="+0" y="+0"/>
+							<size width="30" height="200"/>
+							<off x="1482" y="1375"/>
+							<on x="1532" y="1375"/>
+							<fader>
+								<pos x="1429" y="1462"/>
+								<size width="30" height="10"/>
+								<over x="1429" y="1482"/>
+							</fader>
+						</slider>
+					</panel>
+
+					<panel name="gain" x="+600-35" y="+50+20-65" visibility="var '@$gi' 1">
+						<slider action="gain" dblclick="gain 50%" orientation="circle" relative="no" rightclick="temporary" frommiddle="true">
+							<pos x="+0" y="+0"/>
+							<circle direction="cw" anglemin="-150" anglemax="150"/>
+							<size width="54" height="54"/>
+							<off x="827" y="1303"/>
+							<on x="827" y="1363"/>
+						</slider>
+						<slider action="gain" dblclick="gain 50%" orientation="round">
+							<pos x="+0" y="+0"/>
+							<size width="54" height="54"/>
+							<up x="887" y="1303"/>
+							<mousemask x="887" y="1363"/>
+							<fader anglemin="-150" anglemax="+150">
+								<size width="54" height="54"/>
+								<pos x="887" y="1303"/>
+								<over x="827" y="1423"/>
+							</fader>
+						</slider>
+						<textzone>
+							<pos x="+0" y="+0"/>
+							<size width="54" height="54"/>
+							<up x="887" y="1303"/>
+							<text size="15" align="center" weight="bold" color="white" font="arial" format="%Plevel"/>
+						</textzone>
+					</panel>
+
+					<panel name="filter" x="+600-35-60" y="+50+20-55" visibility="var '@$filteri' 1">
+						<slider action="filter" dblclick="filter 50%" orientation="circle" relative="no" rightclick="temporary" frommiddle="true">
+							<pos x="+0" y="+0"/>
+							<circle direction="cw" anglemin="-150" anglemax="150"/>
+							<size width="54" height="54"/>
+							<off x="827" y="1303"/>
+							<on x="827" y="1363"/>
+						</slider>
+						<slider action="filter" dblclick="filter 50%" orientation="round">
+							<pos x="+0" y="+0"/>
+							<size width="54" height="54"/>
+							<up x="887" y="1303"/>
+							<mousemask x="887" y="1363"/>
+							<fader anglemin="-150" anglemax="+150">
+								<size width="54" height="54"/>
+								<pos x="887" y="1303"/>
+								<over x="827" y="1423"/>
+							</fader>
+						</slider>
+						<textzone>
+							<pos x="+0" y="+0"/>
+							<size width="54" height="54"/>
+							<up x="887" y="1303"/>
+							<text size="15" align="center" weight="bold" color="white" font="arial" action="filter_label"/>
+						</textzone>
+					</panel>
+
+					<panel name="eqs" x="+600-35-60" y="+80" visibility="var '@$eqi' 1">
+						<group name="eqhigh" x="+0" y="+0">
+							<slider action="eq_high" dblclick="eq_high 50%" orientation="circle" relative="no" rightclick="temporary" frommiddle="true">
+								<pos x="+0" y="+0"/>
+								<circle direction="cw" anglemin="-150" anglemax="150"/>
+								<size width="54" height="54"/>
+								<off x="827" y="1303"/>
+								<on x="827" y="1363"/>
+							</slider>
+							<slider action="eq_high" dblclick="eq_high 50%" orientation="round">
+								<pos x="+0" y="+0"/>
+								<size width="54" height="54"/>
+								<up x="887" y="1303"/>
+								<mousemask x="887" y="1363"/>
+								<fader anglemin="-150" anglemax="+150">
+									<size width="54" height="54"/>
+									<pos x="887" y="1303"/>
+									<over x="827" y="1423"/>
+								</fader>
+							</slider>
+							<textzone>
+								<pos x="+0" y="+0"/>
+								<size width="54" height="54"/>
+								<up x="887" y="1303"/>
+								<text size="15" align="center" color="white" font="arial" format="HI"/>
+							</textzone>
+						</group>
+
+						<group name="eqmid" x="+0" y="+65">
+							<slider action="eq_mid" dblclick="eq_mid 50%" orientation="circle" relative="no" rightclick="temporary" frommiddle="true">
+								<pos x="+0" y="+0"/>
+								<circle direction="cw" anglemin="-150" anglemax="150"/>
+								<size width="54" height="54"/>
+								<off x="827" y="1303"/>
+								<on x="827" y="1363"/>
+							</slider>
+							<slider action="eq_mid" dblclick="eq_mid 50%" orientation="round">
+								<pos x="+0" y="+0"/>
+								<size width="54" height="54"/>
+								<up x="887" y="1303"/>
+								<mousemask x="887" y="1363"/>
+								<fader anglemin="-150" anglemax="+150">
+									<size width="54" height="54"/>
+									<pos x="887" y="1303"/>
+									<over x="827" y="1423"/>
+								</fader>
+							</slider>
+							<textzone>
+								<pos x="+0" y="+0"/>
+								<size width="54" height="54"/>
+								<up x="887" y="1303"/>
+								<text size="15" align="center" color="white" font="arial" format="MI"/>
+							</textzone>
+						</group>
+
+						<group name="eqlow" x="+0" y="+65+65">
+							<slider action="eq_low" dblclick="eq_low 50%" orientation="circle" relative="no" rightclick="temporary" frommiddle="true">
+								<pos x="+0" y="+0"/>
+								<circle direction="cw" anglemin="-150" anglemax="150"/>
+								<size width="54" height="54"/>
+								<off x="827" y="1303"/>
+								<on x="827" y="1363"/>
+							</slider>
+							<slider action="eq_low" dblclick="eq_low 50%" orientation="round">
+								<pos x="+0" y="+0"/>
+								<size width="54" height="54"/>
+								<up x="887" y="1303"/>
+								<mousemask x="887" y="1363"/>
+								<fader anglemin="-150" anglemax="+150">
+									<size width="54" height="54"/>
+									<pos x="887" y="1303"/>
+									<over x="827" y="1423"/>
+								</fader>
+							</slider>
+							<textzone>
+								<pos x="+0" y="+0"/>
+								<size width="54" height="54"/>
+								<up x="887" y="1303"/>
+								<text size="15" align="center" color="white" font="arial" format="LO"/>
+							</textzone>
+						</group>
+
+					</panel>
+
+
+				</deck>
+
+				<panel name="audiocr" x="+315-100" y="+314" visibility="var '@$cri' 1">
+					<slider action="crossfader" dblclick="crossfader 50%" orientation="horizontal" rightclick="temporary">
+						<pos x="+0" y="+0"/>
+						<size width="201" height="30"/>
+						<off x="1605" y="1361"/>
+						<on x="1605" y="1411"/>
+						<fader>
+							<size width="11" height="30"/>
+							<pos x="1453" y="1404"/>
+							<over x="1432" y="1404"/>
+						</fader>
+					</slider>
+				</panel>
+				<panel name="vdiocr" x="+315-100" y="+310-30" visibility="var '@$vcri' 1">
+					<slider action="video_crossfader" dblclick="video_crossfader 50%" orientation="horizontal" rightclick="temporary">
+						<pos x="+0" y="+0"/>
+						<size width="201" height="30"/>
+						<off x="1605" y="1361"/>
+						<on x="1605" y="1411"/>
+						<fader>
+							<size width="20" height="20"/>
+							<pos x="1437" y="1374"/>
+						</fader>
+					</slider>
+				</panel>
+
+			</panel>
+
+			<button action="deck left pfl">
+				<tooltip>PFL</tooltip>
+				<pos x="+5" y="+360"/>
+				<size width="42" height="42"/>
+				<off x="1871" y="1482"/>
+				<on x="1871" y="1537"/>
+				<over x="1871" y="1597"/>
+			</button>
+			<button action="deck right pfl">
+				<tooltip>PFL</tooltip>
+				<pos x="+5+575" y="+360"/>
+				<size width="42" height="42"/>
+				<off x="1871" y="1482"/>
+				<on x="1871" y="1537"/>
+				<over x="1871" y="1597"/>
+			</button>
+
+			<button action="video_crossfader_link">
+				<tooltip>Link Video crossfader to Audio Crossfader</tooltip>
+				<pos x="+470" y="+360"/>
+				<size width="42" height="42"/>
+				<off x="1660" y="1109"/>
+				<on x="1660" y="1169"/>
+				<over x="1660" y="1224"/>
+				<text font="Arial" size="16" color="#C5C6C6" align="center" weight="bold" format="LINK" />
+				<textselected font="Arial" size="16" color="black" align="center" weight="bold" format="LINK" />
+			</button>
+			<button action="video_crossfader_auto">
+				<tooltip>Auto Video Crossfader</tooltip>
+				<pos x="+520" y="+360"/>
+				<size width="42" height="42"/>
+				<off x="1660" y="1109"/>
+				<on x="1660" y="1169"/>
+				<over x="1660" y="1224"/>
+				<text font="Arial" size="16" color="#C5C6C6" align="center" weight="bold" format="AUTO" />
+				<textselected font="Arial" size="16" color="black" align="center" weight="bold" format="AUTO" />
+			</button>
+
+			<group name="customs" x="+75" y="+360">
+				<button action="custom_button 1" rightclick="custom_button_edit 1">
+					<tooltip>Custom Button\nrightclick to edit</tooltip>
+					<pos x="+0" y="+0"/>
+					<size width="87" height="20"/>
+					<off x="1342" y="1109"/>
+					<on x="1342" y="1169"/>
+					<over x="1342" y="1223"/>
+					<text dx="3" width="81" font="Arial" size="16" color="#C5C6C6" align="center" weight="bold" action="custom_button_name 1"/>
+					<textselected dx="3" width="81" font="Arial" size="16" color="black" align="center" weight="bold" action="custom_button_name 1"/>
+				</button>
+				<button action="custom_button 2" rightclick="custom_button_edit 2">
+					<tooltip>Custom Button\nrightclick to edit</tooltip>
+					<pos x="+0+95" y="+0"/>
+					<size width="87" height="20"/>
+					<off x="1342" y="1109"/>
+					<on x="1342" y="1169"/>
+					<over x="1342" y="1223"/>
+					<text dx="3" width="81" font="Arial" size="16" color="#C5C6C6" align="center" weight="bold" action="custom_button_name 2"/>
+					<textselected dx="3" width="81" font="Arial" size="16" color="black" align="center" weight="bold" action="custom_button_name 2"/>
+				</button>
+				<button action="custom_button 3" rightclick="custom_button_edit 3">
+					<tooltip>Custom Button\nrightclick to edit</tooltip>
+					<pos x="+0+95+95" y="+0"/>
+					<size width="87" height="20"/>
+					<off x="1342" y="1109"/>
+					<on x="1342" y="1169"/>
+					<over x="1342" y="1223"/>
+					<text dx="3" width="81" font="Arial" size="16" color="#C5C6C6" align="center" weight="bold" action="custom_button_name 3"/>
+					<textselected dx="3" width="81" font="Arial" size="16" color="black" align="center" weight="bold" action="custom_button_name 3"/>
+				</button>
+				<button action="custom_button 4" rightclick="custom_button_edit 4">
+					<tooltip>Custom Button\nrightclick to edit</tooltip>
+					<pos x="+0+95+95+95" y="+0"/>
+					<size width="87" height="20"/>
+					<off x="1342" y="1109"/>
+					<on x="1342" y="1169"/>
+					<over x="1342" y="1223"/>
+					<text dx="3" width="81" font="Arial" size="16" color="#C5C6C6" align="center" weight="bold" action="custom_button_name 4"/>
+					<textselected dx="3" width="81" font="Arial" size="16" color="black" align="center" weight="bold" action="custom_button_name 4"/>
+				</button>
+
+				<button action="custom_button 5" rightclick="custom_button_edit 5">
+					<tooltip>Custom Button\nrightclick to edit</tooltip>
+					<pos x="+0" y="+22"/>
+					<size width="87" height="20"/>
+					<off x="1342" y="1109"/>
+					<on x="1342" y="1169"/>
+					<over x="1342" y="1223"/>
+					<text dx="3" width="81" font="Arial" size="16" color="#C5C6C6" align="center" weight="bold" action="custom_button_name 5"/>
+					<textselected dx="3" width="81" font="Arial" size="16" color="black" align="center" weight="bold" action="custom_button_name 5"/>
+				</button>
+				<button action="custom_button 6" rightclick="custom_button_edit 6">
+					<tooltip>Custom Button\nrightclick to edit</tooltip>
+					<pos x="+0+95" y="+22"/>
+					<size width="87" height="20"/>
+					<off x="1342" y="1109"/>
+					<on x="1342" y="1169"/>
+					<over x="1342" y="1223"/>
+					<text dx="3" width="81" font="Arial" size="16" color="#C5C6C6" align="center" weight="bold" action="custom_button_name 6"/>
+					<textselected dx="3" width="81" font="Arial" size="16" color="black" align="center" weight="bold" action="custom_button_name 6"/>
+				</button>
+				<button action="custom_button 7" rightclick="custom_button_edit 7">
+					<tooltip>Custom Button\nrightclick to edit</tooltip>
+					<pos x="+0+95+95" y="+22"/>
+					<size width="87" height="20"/>
+					<off x="1342" y="1109"/>
+					<on x="1342" y="1169"/>
+					<over x="1342" y="1223"/>
+					<text dx="3" width="81" font="Arial" size="16" color="#C5C6C6" align="center" weight="bold" action="custom_button_name 7"/>
+					<textselected dx="3" width="81" font="Arial" size="16" color="black" align="center" weight="bold" action="custom_button_name 7"/>
+				</button>
+				<button action="custom_button 8" rightclick="custom_button_edit 8">
+					<tooltip>Custom Button\nrightclick to edit</tooltip>
+					<pos x="+0+95+95+95" y="+22"/>
+					<size width="87" height="20"/>
+					<off x="1342" y="1109"/>
+					<on x="1342" y="1169"/>
+					<over x="1342" y="1223"/>
+					<text dx="3" width="81" font="Arial" size="16" color="#C5C6C6" align="center" weight="bold" action="custom_button_name 8"/>
+					<textselected dx="3" width="81" font="Arial" size="16" color="black" align="center" weight="bold" action="custom_button_name 8"/>
+				</button>
+			</group>
+
+			<panel name="vmixeronscreen" visibility="var '@$hidefocus' 0">
+
+				<deck deck="master">
+					<panel name="vfxbuttons" x="+20" y="+301" visibility="var '@$vfxi'">
+						<button action="video_fx">
+							<size width="123" height="37"/>
+							<pos x="+0" y="+0"/>
+							<off x="40" y="1490"/>
+							<text size="22" color="white" weight="bold" align="center" scroll="yes" action="get_effect_name 'video'"/>
+							<textselected size="22" color="#00FF5A" weight="bold" align="center" scroll="yes" action="get_effect_name 'video'"/>
+						</button>
+						<button action="video_fx_select">
+							<pos x="+125" y="+0"/>
+							<size width="40" height="37"/>
+							<off x="285" y="1111"/>
+							<down x="285" y="1151"/>
+							<over x="285" y="1231"/>
+						</button>
+					</panel>
+
+					<panel name="vfxsliders" x="+20" y="+301" visibility="var '@$vfxsli'">
+
+						<panel name="vslider1" x="+0" y="+0" visibility="effect_has_slider 'video' 1">
+							<textzone>
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<text size="16" color="white" weight="bold" align="center" scroll="yes" action="get_effect_slider_label 'video' 1"/>
+							</textzone>
+							<visual >
+								<tooltip></tooltip>
+								<pos x="+0" y="-20"/>
+								<size width="65" height="20"/>
+								<off x="740" y="1397"/>
+							</visual>
+							<slider action="video_fx_slider 1" orientation="horizontal" visibility="video_fx">
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<on x="742" y="1369"/>
+								<off x="742" y="1339"/>
+								<fader>
+									<size width="1" height="16"/>
+									<pos x="570" y="1160"/>
+								</fader>
+							</slider>
+							<slider action="video_fx_slider 1" orientation="horizontal" visibility="not video_fx">
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<on x="742" y="1309"/>
+								<off x="742" y="1339"/>
+								<fader>
+									<size width="1" height="16"/>
+									<pos x="570" y="1160"/>
+								</fader>
+							</slider>
+							<textzone>
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<text size="16" color="white" weight="bold" align="center" scroll="yes" action="get_effect_slider_label 'video' 1"/>
+							</textzone>
+						</panel>
+
+
+						<panel name="vslider2" x="+65" y="+0" visibility="effect_has_slider 'video' 2">
+							<textzone>
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<text size="16" color="white" weight="bold" align="center" scroll="yes" action="get_effect_slider_label 'video' 2"/>
+							</textzone>
+							<visual >
+								<tooltip></tooltip>
+								<pos x="+0" y="-20"/>
+								<size width="65" height="20"/>
+								<off x="740" y="1397"/>
+							</visual>
+							<slider action="video_fx_slider 2" orientation="horizontal" visibility="video_fx">
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<on x="742" y="1369"/>
+								<off x="742" y="1339"/>
+								<fader>
+									<size width="1" height="16"/>
+									<pos x="570" y="1160"/>
+								</fader>
+							</slider>
+							<slider action="video_fx_slider 2" orientation="horizontal" visibility="not video_fx">
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<on x="742" y="1309"/>
+								<off x="742" y="1339"/>
+								<fader>
+									<size width="1" height="16"/>
+									<pos x="570" y="1160"/>
+								</fader>
+							</slider>
+							<textzone>
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<text size="16" color="white" weight="bold" align="center" scroll="yes" action="get_effect_slider_label 'video' 2"/>
+							</textzone>
+						</panel>
+
+					</panel>
+				</deck>
+
+				<panel name="vtrbuttons" x="+20+470" y="+301" visibility="var '@$vtri'">
+					<button action="video_transition">
+						<size width="123" height="37"/>
+						<pos x="+0" y="+0"/>
+						<off x="40" y="1490"/>
+						<text size="22" color="white" weight="bold" align="center" scroll="yes" action="get_effect_name 'transition'"/>
+						<textselected size="22" color="#00FF5A" weight="bold" align="center" scroll="yes" action="get_effect_name 'transition'"/>
+					</button>
+					<button action="video_transition_select">
+						<pos x="-45" y="+0"/>
+						<size width="40" height="37"/>
+						<off x="285" y="1111"/>
+						<down x="285" y="1151"/>
+						<over x="285" y="1231"/>
+					</button>
+				</panel>
+				<panel name="vtrsliders" x="+20+470" y="+301" visibility="var '@$vtrsli'">
+
+					<panel name="vtslider1" x="+0" y="+0" visibility="effect_has_slider 'transition' 1">
+						<textzone>
+							<pos x="+2" y="-18"/>
+							<size width="61" height="16"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" action="get_effect_slider_label 'transition' 1"/>
+						</textzone>
+						<visual >
+							<tooltip></tooltip>
+							<pos x="+0" y="-20"/>
+							<size width="65" height="20"/>
+							<off x="740" y="1397"/>
+						</visual>
+						<slider action="video_transition_slider 1" orientation="horizontal" visibility="video_transition">
+							<pos x="+2" y="-18"/>
+							<size width="61" height="16"/>
+							<on x="742" y="1369"/>
+							<off x="742" y="1339"/>
+							<fader>
+								<size width="1" height="16"/>
+								<pos x="570" y="1160"/>
+							</fader>
+						</slider>
+						<slider action="video_transition_slider 1" orientation="horizontal" visibility="not video_transition">
+							<pos x="+2" y="-18"/>
+							<size width="61" height="16"/>
+							<on x="742" y="1309"/>
+							<off x="742" y="1339"/>
+							<fader>
+								<size width="1" height="16"/>
+								<pos x="570" y="1160"/>
+							</fader>
+						</slider>
+						<textzone>
+							<pos x="+2" y="-18"/>
+							<size width="61" height="16"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" action="get_effect_slider_label 'transition' 1"/>
+						</textzone>
+					</panel>
+
+
+					<panel name="vtslider2" x="+65" y="+0" visibility="effect_has_slider 'transition' 2">
+						<textzone>
+							<pos x="+2" y="-18"/>
+							<size width="61" height="16"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" action="get_effect_slider_label 'transition' 2"/>
+						</textzone>
+						<visual >
+							<tooltip></tooltip>
+							<pos x="+0" y="-20"/>
+							<size width="65" height="20"/>
+							<off x="740" y="1397"/>
+						</visual>
+						<slider action="video_transition_slider 2" orientation="horizontal" visibility="video_transition">
+							<pos x="+2" y="-18"/>
+							<size width="61" height="16"/>
+							<on x="742" y="1369"/>
+							<off x="742" y="1339"/>
+							<fader>
+								<size width="1" height="16"/>
+								<pos x="570" y="1160"/>
+							</fader>
+						</slider>
+						<slider action="video_transition_slider 2" orientation="horizontal" visibility="not video_transition">
+							<pos x="+2" y="-18"/>
+							<size width="61" height="16"/>
+							<on x="742" y="1309"/>
+							<off x="742" y="1339"/>
+							<fader>
+								<size width="1" height="16"/>
+								<pos x="570" y="1160"/>
+							</fader>
+						</slider>
+						<textzone>
+							<pos x="+2" y="-18"/>
+							<size width="61" height="16"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" action="get_effect_slider_label 'transition' 2"/>
+						</textzone>
+					</panel>
+
+				</panel>
+
+			</panel>
+
+			<panel name="opdbuttonsmixer" x="-45" y="+405" visibility="var '@$options' 1">
+				<button action="toggle '@$vui'">
+					<tooltip>Show Volume Levels on Screen</tooltip>
+					<pos x="+0+48" y="+0"/>
+					<size width="42" height="42"/>
+					<off x="190" y="1306"/>
+					<on x="190" y="1366"/>
+					<over x="190" y="1421"/>
+				</button>
+				<button action="toggle '@$voli'">
+					<tooltip>Show Volume Control on Screen</tooltip>
+					<pos x="+0+48+48" y="+0"/>
+					<size width="42" height="42"/>
+					<off x="569" y="1306"/>
+					<on x="569" y="1366"/>
+					<over x="569" y="1421"/>
+				</button>
+				<button action="toggle '@$eqi'">
+					<tooltip>Show EQ Control on Screen</tooltip>
+					<pos x="+0+48+48+48" y="+0"/>
+					<size width="42" height="42"/>
+					<off x="948" y="1306"/>
+					<on x="948" y="1366"/>
+					<over x="948" y="1421"/>
+				</button>
+				<button action="toggle '@$gi'">
+					<tooltip>Show Gain Controls on Screen</tooltip>
+					<pos x="+0+48+48+48+48" y="+0"/>
+					<size width="42" height="42"/>
+					<off x="1095" y="1306"/>
+					<on x="1095" y="1366"/>
+					<over x="1095" y="1421"/>
+				</button>
+				<button action="toggle '@$filteri'">
+					<tooltip>Show Filter Controls on Screen</tooltip>
+					<pos x="+0+48+48+48+48+48" y="+0"/>
+					<size width="42" height="42"/>
+					<off x="1148" y="1306"/>
+					<on x="1148" y="1366"/>
+					<over x="1148" y="1421"/>
+				</button>
+				<button action="toggle '@$cri'">
+					<tooltip>Show audio Crossfader on Screen</tooltip>
+					<pos x="+0+48+48+48+48+48+48" y="+0"/>
+					<size width="42" height="42"/>
+					<off x="997" y="1306"/>
+					<on x="997" y="1366"/>
+					<over x="997" y="1421"/>
+				</button>
+				<button action="toggle '@$vcri'">
+					<tooltip>Show Video Crossfader on Screen</tooltip>
+					<pos x="+0+48+48+48+48+48+48+48" y="+0"/>
+					<size width="42" height="42"/>
+					<off x="1047" y="1306"/>
+					<on x="1047" y="1366"/>
+					<over x="1047" y="1421"/>
+				</button>
+				<button action="toggle '@$vfxi'">
+					<tooltip>Show Video Effect on Screen</tooltip>
+					<pos x="+0+48+48+48+48+48+48+48+48" y="+0"/>
+					<size width="42" height="42"/>
+					<off x="1449" y="1109"/>
+					<on x="1449" y="1169"/>
+					<over x="1449" y="1224"/>
+				</button>
+				<button action="toggle '@$vfxsli'">
+					<tooltip>Show Video Effect Sliders on Screen</tooltip>
+					<pos x="+0+48+48+48+48+48+48+48+48+48" y="+0"/>
+					<size width="42" height="42"/>
+					<off x="1555" y="1109"/>
+					<on x="1555" y="1169"/>
+					<over x="1555" y="1224"/>
+				</button>
+				<button action="toggle '@$vtri'">
+					<tooltip>Show Video Transition on Screen</tooltip>
+					<pos x="+0+48+48+48+48+48+48+48+48+48+48" y="+0"/>
+					<size width="42" height="42"/>
+					<off x="1503" y="1109"/>
+					<on x="1503" y="1169"/>
+					<over x="1503" y="1224"/>
+				</button>
+				<button action="toggle '@$vtrsli'">
+					<tooltip>Show Video Transition Sliders on Screen</tooltip>
+					<pos x="+0+48+48+48+48+48+48+48+48+48+48+48" y="+0"/>
+					<size width="42" height="42"/>
+					<off x="1608" y="1109"/>
+					<on x="1608" y="1169"/>
+					<over x="1608" y="1224"/>
+				</button>
+				<button action="toggle '@$videoviewmas'" rightclick="toggle '@$videomas'">
+					<tooltip>Show Large or Small Video Preview\nRight-click to show/hide Master VIdeo Preview</tooltip>
+					<pos x="+0+48+48+48+48+48+48+48+48+48+48+48+48" y="+0"/>
+					<size width="42" height="42"/>
+					<off x="1677" y="1479"/>
+					<on x="1677" y="1539"/>
+					<over x="1677" y="1594"/>
+				</button>
+				<button action="toggle '@$scratchi'">
+					<tooltip>Show Vertical Scratch Waves</tooltip>
+					<pos x="+0+48+48+48+48+48+48+48+48+48+48+48+48+48" y="+0"/>
+					<size width="42" height="42"/>
+					<off x="1771" y="1482"/>
+					<on x="1771" y="1537"/>
+					<over x="1771" y="1597"/>
+				</button>
+			</panel>
+
+
+
+		</group>
+
+		<group name="deck2" x="1282" y="129+30">
+
+			<deck deck="right">
+
+				<video source="deck" visibility="var '@videoview' 0">
+					<pos x="+0" y="+0"/>
+					<size width="629" height="349"/>
+				</video>
+
+				<panel name="audiodeck2" visibility="var '@videoview' 1">
+					<pos x="+0" y="+5"/>
+					<video source="deck">
+						<pos x="+167" y="+20"/>
+						<size width="275" height="160"/>
+					</video>
+					<cover  >
+						<pos x="+50" y="+60"/>
+						<size width="100" height="100"/>
+					</cover>
+
+
+
+					<visual>
+						<Tooltip></Tooltip>
+						<pos x="+460" y="+55"/>
+						<size width="112" height="112"/>
+						<off x="66" y="2341"/>
+					</visual>
+					<visual type="rotation" source="get_rotation">
+						<Tooltip></Tooltip>
+						<pos x="+460" y="+55"/>
+						<size width="112" height="112"/>
+						<on x="386" y="2341"/>
+					</visual>
+					<visual type="circle" source="get position">
+						<Tooltip></Tooltip>
+						<pos x="+460" y="+55"/>
+						<size width="112" height="112"/>
+						<on x="226" y="2481"/>
+					</visual>
+					<scratch>
+						<tooltip>Scratch or Nudge\n Use the VINYL button to toggle mode</tooltip>
+						<pos x="+460" y="+55"/>
+						<size width="112" height="112"/>
+						<mousemask x="66" y="2481"/>
+					</scratch>
+
+				</panel>
+
+				<panel name="opdbuttons" x="+4" y="+405" visibility="var '@$options' 1">
+					<button action="cycle '@$hc' 4" query="var '@$hc' 1" rightclick="edit_poi" visibility="var '@$hc' 2 ? false : var '@$hc' 3 ? false : true">
+						<tooltip>HotCues on Screen\nRight-click to open POI Editor</tooltip>
+						<pos x="+0" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="3" y="1306"/>
+						<on x="3" y="1366"/>
+						<over x="3" y="1421"/>
+					</button>
+					<button action="cycle '@$hc' 4" query="on" rightclick="edit_poi" visibility="var '@$hc' 0 ? false : var '@$hc' 1 ? false : true">
+						<tooltip>HotCues on Screen\nRight-click to open POI Editor</tooltip>
+						<pos x="+0" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="50" y="1306"/>
+						<on x="50" y="1366"/>
+						<over x="50" y="1421"/>
+					</button>
+					<button action="toggle '@$loopi'">
+						<tooltip>Show Loops on Screen</tooltip>
+						<pos x="+0+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="97" y="1306"/>
+						<on x="97" y="1366"/>
+						<over x="97" y="1421"/>
+					</button>
+					<button action="cycle '@$padsi' 3" query="var '@$padsi' 1" visibility="var '@$padsi' 2 ? false : true">
+						<tooltip>Show Pads on Screen</tooltip>
+						<pos x="+0+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="220" y="1900"/>
+						<on x="220" y="1960"/>
+						<over x="220" y="2015"/>
+					</button>
+					<button action="cycle '@$padsi' 3" query="on" visibility="var '@$padsi' 2">
+						<tooltip>Show Pads on Screen</tooltip>
+						<pos x="+0+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="282" y="1900"/>
+						<on x="282" y="1960"/>
+						<over x="282" y="2015"/>
+					</button>
+					<button action="cycle '@$fxi' 3" query="var '@$fxi' 1" visibility="var '@$fxi' 2 ? false : true">
+						<tooltip>Show Effects on Screen</tooltip>
+						<pos x="+0+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="144" y="1306"/>
+						<on x="144" y="1366"/>
+						<over x="144" y="1421"/>
+					</button>
+					<button action="cycle '@$fxi' 3" query="var '@$fxi' 2" visibility="var '@$fxi' 2">
+						<tooltip>Show Effects on Screen</tooltip>
+						<pos x="+0+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="475" y="1306"/>
+						<on x="475" y="1366"/>
+						<over x="475" y="1421"/>
+					</button>
+					<button action="toggle '@$keyi'">
+						<tooltip>Show Key value on Screen</tooltip>
+						<pos x="+48+48+48+48+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="345" y="1900"/>
+						<on x="345" y="1960"/>
+						<over x="345" y="2015"/>
+					</button>
+
+
+					<button action="toggle '@$pitchi'">
+						<tooltip>Show Pitch Slider on Screen</tooltip>
+						<pos x="+0+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="238" y="1306"/>
+						<on x="238" y="1366"/>
+						<over x="238" y="1421"/>
+					</button>
+					<button action="toggle '@$pitchinfo'">
+						<tooltip>Show Pitch Info on Screen</tooltip>
+						<pos x="+0+48+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="521" y="1306"/>
+						<on x="521" y="1366"/>
+						<over x="521" y="1421"/>
+					</button>
+					<button action="toggle '@$bpmi'">
+						<tooltip>Show BPM/Sync on Screen</tooltip>
+						<pos x="+0+48+48+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="427" y="1306"/>
+						<on x="427" y="1366"/>
+						<over x="427" y="1421"/>
+					</button>
+					<button action="toggle '@$controli'">
+						<tooltip>Show Deck Controls on Screen</tooltip>
+						<pos x="+0+48+48+48+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="285" y="1306"/>
+						<on x="285" y="1366"/>
+						<over x="285" y="1421"/>
+					</button>
+					<button action="toggle '@$decki'">
+						<tooltip>Show Track Times on Screen</tooltip>
+						<pos x="+0+48+48+48+48+48+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="332" y="1306"/>
+						<on x="332" y="1366"/>
+						<over x="332" y="1421"/>
+					</button>
+					<button action="toggle '@$texti'">
+						<tooltip>Show Track Title on Screen</tooltip>
+						<pos x="+4+48+48+48+48+48+48+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="382" y="1306"/>
+						<on x="382" y="1366"/>
+						<over x="382" y="1421"/>
+					</button>
+					<button action="toggle '@videoview'">
+						<tooltip>Show Large or Small Video Preview</tooltip>
+						<pos x="+4+48+48+48+48+48+48+48+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="1677" y="1479"/>
+						<on x="1677" y="1539"/>
+						<over x="1677" y="1594"/>
+					</button>
+					<button action="toggle '@$cuenumber'">
+						<tooltip>Show HotCue Numbers on Song Progress bar</tooltip>
+						<pos x="+4+48+48+48+48+48+48+48+48+48+48+48+48" y="+0"/>
+						<size width="42" height="42"/>
+						<off x="742" y="1119"/>
+						<on x="742" y="1179"/>
+						<over x="742" y="1234"/>
+					</button>
+				</panel>
+
+				<panel name="onscreen" visibility="loaded ? var '@$hidefocus' 0">
+
+					<panel name="times" x="+0" y="+0" visibility="var '@$decki'">
+						<button action="nothing">
+							<tooltip></tooltip>
+							<size width="90" height="30"/>
+							<pos x="+11" y="+5"/>
+							<off x="40" y="1490"/>
+							<text size="28" color="white" weight="bold" align="left" scroll="yes" format="%Pspent"/>
+						</button>
+						<button action="songpos_remain 30000ms ? blink : nothing">
+							<tooltip></tooltip>
+							<size width="90" height="30"/>
+							<pos x="+540-4" y="+5"/>
+							<off x="40" y="1490"/>
+							<on x="40" y="1490"/>
+							<text size="28" color="white" weight="bold" align="left" scroll="yes" format="%Pleft"/>
+							<textselected size="28" color="black" weight="bold" align="left" scroll="yes" format="%Pleft"/>
+						</button>
+					</panel>
+
+					<panel name="keys" x="+0" y="+35" visibility="var '@$keyi'">
+						<button action="cycle '@$keyvalue' 3">
+							<tooltip></tooltip>
+							<size width="70" height="30"/>
+							<pos x="+510" y="+0"/>
+							<off x="40" y="1490"/>
+							<text size="20" color="white" weight="bold" align="center" scroll="yes" action="var '@$keyvalue' 1 ? get_text '♪ `get_key`' : var '@$keyvalue' 2 ? get_text '♪ `get_key_modifier`' : get_text '♪ `get_harmonic`'"/>
+						</button>
+					</panel>
+
+					<panel name="titles" x="+0" y="+0" visibility="var '@$texti'">
+						<button action="toggle 'scrol'">
+							<Tooltip>Click to scroll Artist-title</Tooltip>
+							<size width="427" height="30"/>
+							<pos x="+101" y="+5"/>
+							<off x="40" y="1490"/>
+							<text dx="10" width="408" size="20" color="white" weight="bold" align="center" scroll="no" format="%Author-%Title"/>
+							<textselected dx="10" width="408" size="20" color="white" weight="bold" align="center" scroll="yes" format="%Author-%Title"/>
+						</button>
+					</panel>
+
+					<panel name="bpms" x="+540-16" y="+301" visibility="var '@$bpmi'">
+						<button action="sync" rightclick="pitch_reset">
+							<Tooltip>Click to SYNC with the other deck\nright-click to gradually reset to original tempo</Tooltip>
+							<size width="90" height="37"/>
+							<pos x="+9" y="+0"/>
+							<off x="40" y="1490"/>
+							<text dx="-5" width="85" size="28" color="white" weight="bold" align="right" scroll="yes" format="%Pbpmex"/>
+						</button>
+					</panel>
+
+					<panel name="pitch" x="+540-12" y="+40" visibility="var '@$pitchinfo'">
+						<button action="pitch_range +1">
+							<Tooltip>Pitch Range\nClick to select the next one</Tooltip>
+							<size width="60" height="18"/>
+							<pos x="+35" y="+219"/>
+							<off x="40" y="1490"/>
+							<text size="14" color="white" weight="bold" align="center" scroll="yes" format="%pitchrange %"/>
+						</button>
+						<button action="pitch_reset" rightclick="pitch 100%">
+							<Tooltip>Pitch value\nClick to gradually reset pitch tozero\nRight-click to instantly reset</Tooltip>
+							<size width="60" height="22"/>
+							<pos x="+35" y="+239"/>
+							<off x="40" y="1490"/>
+							<text size="20" color="white" weight="bold" align="center" scroll="yes" format="%Ppitch"/>
+						</button>
+					</panel>
+
+					<panel name="pitchslider" x="+535" y="+50" visibility="var '@$pitchi'">
+						<slider action="pitch_slider" direction="down" orientation="vertical">
+							<pos x="+50" y="+0"/>
+							<size width="30" height="200"/>
+							<on x="1328" y="1375"/>
+							<off x="1378" y="1375"/>
+							<fader>
+								<pos x="1429" y="1462"/>
+								<size width="30" height="10"/>
+								<over x="1429" y="1482"/>
+							</fader>
+						</slider>
+
+
+					</panel>
+
+					<panel name="loopbuttons" x="+484-200" y="+301" visibility="var '@$loopi'">
+						<visual source="loop_position" type="circle">
+							<tooltip></tooltip>
+							<pos x="+0" y="+0"/>
+							<size width="38" height="38"/>
+							<off x="75" y="1148"/>
+							<on x="75" y="1188"/>
+						</visual>
+						<button action="loop">
+							<tooltip>LOOP</tooltip>
+							<pos x="+1" y="+0"/>
+							<size width="38" height="38"/>
+							<off x="126" y="1148"/>
+							<on x="126" y="1188"/>
+							<over x="126" y="1228"/>
+							<text dy="1" font="arial" size="20" weight="bold" color="white" align="center" format="%loop"/>
+							<textselected dy="1" font="arial" size="20" weight="bold" color="black" align="center" format="%loop"/>
+						</button>
+						<button action="loop_half">
+							<tooltip>LOOP HALF</tooltip>
+							<pos x="-45" y="+0"/>
+							<size width="40" height="37"/>
+							<off x="23" y="1111"/>
+							<down x="23" y="1151"/>
+							<over x="23" y="1231"/>
+						</button>
+						<button action="loop_double">
+							<tooltip>LOOP DOUBLE</tooltip>
+							<pos x="+45" y="+0"/>
+							<size width="40" height="37"/>
+							<off x="23" y="1111"/>
+							<down x="393" y="1151"/>
+							<over x="393" y="1231"/>
+						</button>
+
+					</panel>
+
+					<panel name="hotcuebuttons" x="+5" y="+41" visibility="var '@$hc' 1">
+						<button action="hot_cue 1" rightclick="delete_cue 1">
+							<tooltip>HOT CUE 1</tooltip>
+							<pos x="+0" y="+0"/>
+							<size width="37" height="46"/>
+							<off x="513" y="1097"/>
+							<selected x="513" y="1197"/>
+							<over x="513" y="1147"/>
+							<overselected x="513" y="1247"/>
+						</button>
+						<button action="hot_cue 2" rightclick="delete_cue 2">
+							<tooltip>HOT CUE 2</tooltip>
+							<pos x="+0" y="+0+55"/>
+							<size width="37" height="46"/>
+							<off x="513" y="1097"/>
+							<selected x="513" y="1197"/>
+							<over x="513" y="1147"/>
+							<overselected x="513" y="1247"/>
+						</button>
+						<button action="hot_cue 3" rightclick="delete_cue 3">
+							<tooltip>HOT CUE 3</tooltip>
+							<pos x="+0" y="+0+55+55"/>
+							<size width="37" height="46"/>
+							<off x="513" y="1097"/>
+							<selected x="513" y="1197"/>
+							<over x="513" y="1147"/>
+							<overselected x="513" y="1247"/>
+						</button>
+						<button action="hot_cue 4" rightclick="delete_cue 4">
+							<tooltip>HOT CUE 4</tooltip>
+							<pos x="+0" y="+0+55+55+55"/>
+							<size width="37" height="46"/>
+							<off x="513" y="1097"/>
+							<selected x="513" y="1197"/>
+							<over x="513" y="1147"/>
+							<overselected x="513" y="1247"/>
+						</button>
+					</panel>
+
+					<panel name="hotcuebuttons" x="+5" y="+41" visibility="var '@$hc' 2">
+						<button action="hot_cue 1" rightclick="delete_cue 1">
+							<tooltip>HOT CUE 1</tooltip>
+							<pos x="+0" y="+0"/>
+							<size width="50" height="34"/>
+							<off x="40" y="1490"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" format="%Pcue1\n%Pfromcue1"/>
+						</button>
+						<button action="hot_cue 2" rightclick="delete_cue 2">
+							<tooltip>HOT CUE 2</tooltip>
+							<pos x="+0" y="+0+55"/>
+							<size width="50" height="34"/>
+							<off x="40" y="1490"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" format="%Pcue2\n%Pfromcue2"/>
+						</button>
+						<button action="hot_cue 3" rightclick="delete_cue 3">
+							<tooltip>HOT CUE 3</tooltip>
+							<pos x="+0" y="+0+55+55"/>
+							<size width="50" height="34"/>
+							<off x="40" y="1490"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" format="%Pcue3\n%Pfromcue3"/>
+						</button>
+						<button action="hot_cue 4" rightclick="delete_cue 4">
+							<tooltip>HOT CUE 4</tooltip>
+							<pos x="+0" y="+0+55+55+55"/>
+							<size width="50" height="34"/>
+							<off x="40" y="1490"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" format="%Pcue4\n%Pfromcue4"/>
+						</button>
+					</panel>
+
+					<panel name="hotcuebuttons" x="+5" y="+41" visibility="var '@$hc' 3">
+						<button action="hot_cue 1" rightclick="delete_cue 1">
+							<tooltip>HOT CUE 1</tooltip>
+							<pos x="+0" y="+0"/>
+							<size width="50" height="34"/>
+							<off x="40" y="1490"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" format="%namecue1\n%Bfromcue1"/>
+						</button>
+						<button action="hot_cue 2" rightclick="delete_cue 2">
+							<tooltip>HOT CUE 2</tooltip>
+							<pos x="+0" y="+0+55"/>
+							<size width="50" height="34"/>
+							<off x="40" y="1490"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" format="%namecue2\n%Bfromcue2"/>
+						</button>
+						<button action="hot_cue 3" rightclick="delete_cue 3">
+							<tooltip>HOT CUE 3</tooltip>
+							<pos x="+0" y="+0+55+55"/>
+							<size width="50" height="34"/>
+							<off x="40" y="1490"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" format="%namecue3\n%Bfromcue3"/>
+						</button>
+						<button action="hot_cue 4" rightclick="delete_cue 4">
+							<tooltip>HOT CUE 4</tooltip>
+							<pos x="+0" y="+0+55+55+55"/>
+							<size width="50" height="34"/>
+							<off x="40" y="1490"/>
+							<text size="16" color="white" weight="bold" align="center" scroll="yes" format="%namecue4\n%Bfromcue4"/>
+						</button>
+					</panel>
+
+					<panel name="controlbuttons" x="+484" y="+301" visibility="var '@$controli'">
+						<button action="play_pause">
+							<tooltip>PLAY PAUSE</tooltip>
+							<pos x="+0" y="+0"/>
+							<size width="40" height="37"/>
+							<off x="393" y="1111"/>
+							<on x="393" y="1151"/>
+							<over x="393" y="1231"/>
+							<overselected x="393" y="1191"/>
+						</button>
+
+						<button action="stop">
+							<tooltip>STOP</tooltip>
+							<pos x="-50" y="+0"/>
+							<size width="40" height="37"/>
+							<off x="393-170" y="1111"/>
+							<on x="393-170" y="1151"/>
+							<over x="393-170" y="1231"/>
+							<overselected x="393-170" y="1191"/>
+						</button>
+						<button action="cue">
+							<tooltip>CUE</tooltip>
+							<pos x="-50-50" y="+0"/>
+							<size width="40" height="37"/>
+							<off x="393-170-50" y="1111"/>
+							<on x="393-170-50" y="1151"/>
+							<over x="393-170-50" y="1231"/>
+							<overselected x="393-170-50" y="1191"/>
+						</button>
+					</panel>
+
+					<panel name="fxbuttons" x="+20" y="+301" visibility="var '@$fxi' 0 ? false : true">
+						<button action="effect_active">
+							<size width="123" height="37"/>
+							<pos x="+0" y="+0"/>
+							<off x="40" y="1490"/>
+							<text size="22" color="white" weight="bold" align="center" scroll="yes" action="get_effect_name"/>
+							<textselected size="22" color="#00FF5A" weight="bold" align="center" scroll="yes" action="get_effect_name"/>
+						</button>
+						<button action="effect_select">
+							<pos x="+125" y="+0"/>
+							<size width="40" height="37"/>
+							<off x="285" y="1111"/>
+							<down x="285" y="1151"/>
+							<over x="285" y="1231"/>
+						</button>
+					</panel>
+
+					<panel name="fxsliders" x="+20" y="+301" visibility="var '@$fxi' 2">
+
+						<panel name="slider1" x="+0" y="+0" visibility="effect_has_slider 1">
+							<textzone>
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<text size="16" color="white" weight="bold" align="center" scroll="yes" action="get_effect_slider_label 1"/>
+							</textzone>
+							<visual >
+								<tooltip></tooltip>
+								<pos x="+0" y="-20"/>
+								<size width="65" height="20"/>
+								<off x="740" y="1397"/>
+							</visual>
+							<slider action="effect_slider 1" orientation="horizontal" visibility="effect_active">
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<on x="742" y="1369"/>
+								<off x="742" y="1339"/>
+								<fader>
+									<size width="1" height="16"/>
+									<pos x="570" y="1160"/>
+								</fader>
+							</slider>
+							<slider action="effect_slider 1" orientation="horizontal" visibility="not effect_active">
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<on x="742" y="1309"/>
+								<off x="742" y="1339"/>
+								<fader>
+									<size width="1" height="16"/>
+									<pos x="570" y="1160"/>
+								</fader>
+							</slider>
+							<textzone>
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<text size="16" color="white" weight="bold" align="center" scroll="yes" action="get_effect_slider_label 1"/>
+							</textzone>
+						</panel>
+
+
+						<panel name="slider2" x="+65" y="+0" visibility="effect_has_slider 2">
+							<textzone>
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<text size="16" color="white" weight="bold" align="center" scroll="yes" action="get_effect_slider_label 2"/>
+							</textzone>
+							<visual >
+								<tooltip></tooltip>
+								<pos x="+0" y="-20"/>
+								<size width="65" height="20"/>
+								<off x="740" y="1397"/>
+							</visual>
+							<slider action="effect_slider 2" orientation="horizontal" visibility="effect_active">
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<on x="742" y="1369"/>
+								<off x="742" y="1339"/>
+								<fader>
+									<size width="1" height="16"/>
+									<pos x="570" y="1160"/>
+								</fader>
+							</slider>
+							<slider action="effect_slider 2" orientation="horizontal" visibility="not effect_active">
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<on x="742" y="1309"/>
+								<off x="742" y="1339"/>
+								<fader>
+									<size width="1" height="16"/>
+									<pos x="570" y="1160"/>
+								</fader>
+							</slider>
+							<textzone>
+								<pos x="+2" y="-18"/>
+								<size width="61" height="16"/>
+								<text size="16" color="white" weight="bold" align="center" scroll="yes" action="get_effect_slider_label 2"/>
+							</textzone>
+						</panel>
+
+					</panel>
+
+					<panel name="padsinfo" x="+30" y="+210" visibility="var '@$padsi' 2">
+
+						<button class="padprm" action="pad_param +1" rightclick="pad_param -1">
+							<tooltip>Param 1. Click to increase/Right-click to decrease </tooltip>
+							<pos x="+180" y="+0"/>
+							<text action="pad_param"/>
+						</button>
+						<button class="padprm" action="pad_param2 +1" rightclick="pad_param2 -1">
+							<tooltip>Param 2. Click to increase/Right-click to decrease </tooltip>
+							<pos x="+180+180" y="+0"/>
+							<text action="pad_param2"/>
+						</button>
+					</panel>
+
+					<panel name="pads" x="+30" y="+220" visibility="var '@$padsi'">
+
+						<button class="padm" action="pad_page">
+							<pos x="+40" y="+10"/>
+							<text action="pad_page &amp; param_uppercase"/>
+						</button>
+
+						<button class="padct" action="pad 1" rightclick="padshift 1">
+							<pos x="+160" y="+10"/>
+							<text action="pad 1"/>
+							<textselected action="pad 1"/>
+						</button>
+						<button class="padct" action="pad 2" rightclick="padshift 2">
+							<pos x="+160+90" y="+10"/>
+							<text action="pad 2"/>
+							<textselected action="pad 2"/>
+						</button>
+						<button class="padct" action="pad 3" rightclick="padshift 3">
+							<pos x="+160+90+90" y="+10"/>
+							<text action="pad 3"/>
+							<textselected action="pad 3"/>
+						</button>
+						<button class="padct" action="pad 4" rightclick="padshift 4">
+							<pos x="+160+90+90+90" y="+10"/>
+							<text action="pad 4"/>
+							<textselected action="pad 4"/>
+						</button>
+						<button class="padct" action="pad 5" rightclick="padshift 5">
+							<pos x="+160" y="+10+34"/>
+							<text action="pad 5"/>
+							<textselected action="pad 5"/>
+						</button>
+						<button class="padct" action="pad 6" rightclick="padshift 6">
+							<pos x="+160+90" y="+10+34"/>
+							<text action="pad 6"/>
+							<textselected action="pad 6"/>
+						</button>
+						<button class="padct" action="pad 7" rightclick="padshift 7">
+							<pos x="+160+90+90" y="+10+34"/>
+							<text action="pad 7"/>
+							<textselected action="pad 7"/>
+						</button>
+						<button class="padct" action="pad 8" rightclick="padshift 8">
+							<pos x="+160+90+90+90" y="+10+34"/>
+							<text action="pad 8"/>
+							<textselected action="pad 8"/>
+						</button>
+					</panel>
+
+				</panel>
+
+				<songpos>
+					<size width="618" height="38"/>
+					<pos x="+5" y="+363"/>
+					<cues>
+						<size width="15" height="38"/>
+						<up x="592" y="1101"/>
+					</cues>
+				</songpos>
+
+				<panel name="songposnum" x="+5" y="+363+26" visibility="loaded ? var '@$cuenumber' 1">
+					<slider action="cue_pos 1" visibility="automix ? false : hot_cue 1">
+						<size width="618+15" height="13"/>
+						<pos x="-7" y="+0"/>
+						<fader>
+							<size width="15" height="13"/>
+							<pos x="795" y="1200"/>
+						</fader>
+					</slider>
+					<slider action="cue_pos 2" visibility="automix ? false : hot_cue 2">
+						<size width="618+15" height="13"/>
+						<pos x="-7" y="+0"/>
+						<fader>
+							<size width="15" height="13"/>
+							<pos x="815" y="1200"/>
+						</fader>
+					</slider>
+					<slider action="cue_pos 3" visibility="automix ? false : hot_cue 3">
+						<size width="618+15" height="13"/>
+						<pos x="-7" y="+0"/>
+						<fader>
+							<size width="15" height="13"/>
+							<pos x="835" y="1200"/>
+						</fader>
+					</slider>
+					<slider action="cue_pos 4" visibility="automix ? false : hot_cue 4">
+						<size width="618+15" height="13"/>
+						<pos x="-7" y="+0"/>
+						<fader>
+							<size width="15" height="13"/>
+							<pos x="855" y="1200"/>
+						</fader>
+					</slider>
+					<slider action="cue_pos 5" visibility="automix ? false : hot_cue 5">
+						<size width="618+15" height="13"/>
+						<pos x="-7" y="+0"/>
+						<fader>
+							<size width="15" height="13"/>
+							<pos x="875" y="1200"/>
+						</fader>
+					</slider>
+					<slider action="cue_pos 6" visibility="automix ? false : hot_cue 6">
+						<size width="618+15" height="13"/>
+						<pos x="-7" y="+0"/>
+						<fader>
+							<size width="15" height="13"/>
+							<pos x="895" y="1200"/>
+						</fader>
+					</slider>
+					<slider action="cue_pos 7" visibility="automix ? false : hot_cue 7">
+						<size width="618+15" height="13"/>
+						<pos x="-7" y="+0"/>
+						<fader>
+							<size width="15" height="15"/>
+							<pos x="915" y="1200"/>
+						</fader>
+					</slider>
+					<slider action="cue_pos 8" visibility="automix ? false : hot_cue 8">
+						<size width="618+15" height="13"/>
+						<pos x="-7" y="+0"/>
+						<fader>
+							<size width="15" height="13"/>
+							<pos x="935" y="1200"/>
+						</fader>
+					</slider>
+				</panel>
+
+				<textzone visibility="not loaded">
+					<size width="605" height="25"/>
+					<pos x="+10" y="+150"/>
+					<text size="22" color="white" weight="bold" align="center" scroll="no" format="Drag n drop a video file here"/>
+				</textzone>
+
+			</deck>
+
+		</group>
+
+		<!-- BROWSER  -->
+
+		<browser showzoom="true" visibility="var '@$options' 1">
+			<size width="1904" height="454"/>
+			<pos x="9" y="612"/>
+		</browser>
+		<browser showzoom="true" visibility="var '@$options' 0">
+			<size width="1904" height="498"/>
+			<pos x="9" y="568"/>
+		</browser>
+	</panel>
+
+	<panel name="fcminidecks" visibility="browser_zoom">
+
+		<browser showzoom="true">
+			<size width="1904" height="498+410+110"/>
+			<pos x="9" y="568-410-110"/>
+		</browser>
+	</panel>
+
+
+
+
+
+</skin>
