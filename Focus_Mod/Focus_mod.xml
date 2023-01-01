@@ -1,4 +1,4 @@
-﻿<skin name="Focus" version="8" width="1920" height="1080" nbdecks="2" comment="Focus Video OSC ver 3" author="DJDaD - Atomix Productions" preview="skinpreview.png">
+﻿<skin name="Focus_Mod" version="8" width="1920" height="1080" nbdecks="2" comment="Focus Mod Skin ver 1" author="KANIPan" preview="skinpreview.png">
 
 	<font name="Arial" />
 	<tooltip font="Arial" weight="bold" size="15" color="black" back="#C4B573" shortcut="#808080"></tooltip>
@@ -98,6 +98,8 @@
 		<on x="1246" y="1169"/>
 		<over x="1246" y="1224"/>
 	</button>
+
+	<!-- REMOVED FOCUS MOD
 	<button action="setting 'videocreatelinkondrop'">
 		<tooltip>Link video mode\nWhen On, Video Deck previews will link Video instead of loading</tooltip>
 		<pos x="1510" y="2"/>
@@ -108,6 +110,7 @@
 		<text font="Arial" size="14" color="#C5C6C6" align="center" weight="bold" format="LINK\nMODE" />
 		<textselected font="Arial" size="14" color="black" align="center" weight="bold" format="LINK\nMODE" />
 	</button>
+	-->
 
 	<textzone>
 		<pos x="225" y="10"/>
@@ -305,7 +308,7 @@
 		</slider>
 	</group>
 
-	<panel namw="fcnormaldecks" visibility="not browser_zoom">
+	<panel namw="fcnormaldecks">
 		<textzone>
 			<size width="42" height="16"/>
 			<pos x="1865" y="53"/>
@@ -2077,7 +2080,11 @@
 				</button>
 			</panel>
 
-
+			<!-- ADD FOCUS MOD -->
+			<button x="+0" y="+0" rightclick="video_output">
+				<pos x="+125" y="+50"/>
+				<size width="378" height="210"/>
+			</button>
 
 		</group>
 
@@ -2344,7 +2351,6 @@
 								<over x="1429" y="1482"/>
 							</fader>
 						</slider>
-
 
 					</panel>
 
@@ -2769,7 +2775,7 @@
 		</group>
 
 		<!-- BROWSER  -->
-
+		<!-- REMOVED FOCUS MOD
 		<browser showzoom="true" visibility="var '@$options' 1">
 			<size width="1904" height="454"/>
 			<pos x="9" y="612"/>
@@ -2778,8 +2784,10 @@
 			<size width="1904" height="498"/>
 			<pos x="9" y="568"/>
 		</browser>
+		-->
 	</panel>
 
+	<!-- REMOVED FOCUS MOD
 	<panel name="fcminidecks" visibility="browser_zoom">
 
 		<browser showzoom="true">
@@ -2787,9 +2795,6 @@
 			<pos x="9" y="568-410-110"/>
 		</browser>
 	</panel>
-
-
-
-
+	-->
 
 </skin>
